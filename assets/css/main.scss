@@ -1,0 +1,26 @@
+html,
+body {
+  font-family: Inter;
+  color: #1c2e36;
+}
+
+section {
+  position: relative;
+}
+
+ul {
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+
+  li {
+    list-style-type: none;
+    margin-bottom: 16px;
+
+    &::before {
+      content: url('/images/temp-icon-red.svg');
+      position: absolute;
+      left: 0;
+    }
+  }
+}
