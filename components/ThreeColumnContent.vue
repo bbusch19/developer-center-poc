@@ -1,100 +1,55 @@
 <template>
   <section>
     <div class="row">
-      <div class="column">
-        <div class="column-content">
-          <img src="" />
-          <h4>Documentation</h4>
-          <p>
-            Learn about API core concepts, tutorials, troubleshooting, and much
-            more.
-          </p>
-          <div class="link-container">
-            <a href="#">Go to documentation</a>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="column-content">
-          <img src="" />
-          <h4>Documentation</h4>
-          <p>
-            Learn about API core concepts, tutorials, troubleshooting, and much
-            more.
-          </p>
-          <div class="link-container">
-            <a href="#">Go to documentation</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="column-content">
-          <img src="" />
-          <h4>Documentation</h4>
-          <p>
-            Learn about API core concepts, tutorials, troubleshooting, and much
-            more.
-          </p>
-          <div class="link-container">
-            <a href="#">Go to documentation</a>
-          </div>
-        </div>
-      </div>
+      <ColumnContent v-for="column in columnsContent" :columnContent="column" />
     </div>
   </section>
 </template>
 
-<script></script>
+<script>
+import ColumnContent from '~/components/ColumnContent'
+
+export default {
+  components: {
+    ColumnContent
+  },
+  data() {
+    return {
+      columnsContent: [
+        {
+          image: '/images/illustrations/three-column-illustration-1.jpg',
+          title: 'Documentation',
+          subtitle:
+            'Learn about API core concepts, tutorials, troubleshooting, and much more.',
+          linkText: 'Go to documentation',
+          linkHref: '#'
+        },
+        {
+          image: '/images/illustrations/three-column-illustration-2.jpg',
+          title: 'API Reference',
+          subtitle: 'Customize RMS API, to help you get the data you need.',
+          linkText: 'View API',
+          linkHref: '#'
+        },
+        {
+          image: '/images/illustrations/three-column-illustration-3.jpg',
+          title: 'Community',
+          subtitle:
+            'Connecting with peers and discuss all about RMS and coding.',
+          linkText: 'Join the community',
+          linkHref: '#'
+        }
+      ]
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
-@import '~/assets/css/mixins.scss';
+@import '~/assets/css/globals/mixins.scss';
 
 section {
   @include flex-horizontal-column;
   padding: 100px 80px;
-}
-
-.column-content {
-  width: 373px;
-  height: 100%;
-  margin: 0 auto;
-
-  img {
-    width: 373px;
-    height: 200px;
-    object-fit: contain;
-  }
-
-  h4,
-  p,
-  a {
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-  }
-
-  h4 {
-    font-size: 24px;
-    line-height: 1.17;
-    letter-spacing: -0.55px;
-    color: #1c2e36;
-  }
-
-  p {
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: normal;
-    color: #5b616c;
-  }
-
-  a {
-    font-size: 14px;
-    line-height: 1;
-    letter-spacing: 1px;
-    color: #165fcf;
-    text-decoration: none;
-  }
 }
 </style>

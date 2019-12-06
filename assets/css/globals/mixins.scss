@@ -4,6 +4,11 @@
 *****************************  
 ****************************/
 
+/*
+  Mixin to horizontally display columns,
+  evenly spaced.
+  Structure of:  wrapper > .row > .column;
+*/
 @mixin flex-horizontal-column {
   display: flex;
   .row {
