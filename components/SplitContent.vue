@@ -1,5 +1,5 @@
 <template>
-  <section :style="{ backgroundImageStyles }">
+  <section :style="backgroundImageStyles">
     <div class="container">
       <div class="content">
         <p>FEATURED</p>
@@ -47,7 +47,9 @@ export default {
     backgroundImageStyles() {
       return (
         this.backgroundImage && {
-          backgroundImage: `url(${this.backgroundImage})`
+          backgroundImage: `url(${this.backgroundImage}),  linear-gradient(-49deg, #92BCFE 0%, #3872CC 99%)`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover'
         }
       )
     }

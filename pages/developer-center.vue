@@ -7,6 +7,23 @@
     <SplitContent
       content="Hey there this is the content!"
       image="/images/SiteIq-hero-image.png"
+      background-image="/images/SiteIQ-bg-pattern.png"
+    />
+    <NeedHelpColumns
+      :columns="[
+        {
+          heading: 'Live chat',
+          subheading:
+            'We are available from Monday to Friday. Expected response time should be whithin a few minutes.'
+        },
+        {
+          heading: 'Email',
+          subheading:
+            'We are available from Monday to Friday. Expected response time should be whithin 24 hours.'
+        }
+      ]"
+      heading="Need help?"
+      subheading="Our support team is here to help you."
     />
   </div>
 </template>
@@ -14,11 +31,13 @@
 <script>
 import HeroSearch from '~/components/HeroSearch'
 import SplitContent from '~/components/SplitContent'
+import NeedHelpColumns from '~/components/NeedHelpColumns'
 
 export default {
   components: {
     HeroSearch,
-    SplitContent
+    SplitContent,
+    NeedHelpColumns
   },
   data() {
     return { test: 'I am a test piece of data' }
