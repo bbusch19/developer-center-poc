@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="row">
-      <ColumnContent v-for="column in columnsContent" :columnContent="column" />
+      <ColumnContent v-for="column in content" :columnContent="column" />
     </div>
   </section>
 </template>
@@ -13,34 +13,8 @@ export default {
   components: {
     ColumnContent
   },
-  data() {
-    return {
-      columnsContent: [
-        {
-          image: '/images/illustrations/three-column-illustration-1.jpg',
-          title: 'Documentation',
-          subtitle:
-            'Learn about API core concepts, tutorials, troubleshooting, and much more.',
-          linkText: 'Go to documentation',
-          linkHref: '#'
-        },
-        {
-          image: '/images/illustrations/three-column-illustration-2.jpg',
-          title: 'API Reference',
-          subtitle: 'Customize RMS API, to help you get the data you need.',
-          linkText: 'View API',
-          linkHref: '#'
-        },
-        {
-          image: '/images/illustrations/three-column-illustration-3.jpg',
-          title: 'Community',
-          subtitle:
-            'Connecting with peers and discuss all about RMS and coding.',
-          linkText: 'Join the community',
-          linkHref: '#'
-        }
-      ]
-    }
+  props: {
+    content: Array
   }
 }
 </script>
