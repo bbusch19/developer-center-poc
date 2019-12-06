@@ -52,17 +52,49 @@
 
 section {
   @include flex-horizontal-column;
+  padding: 100px 80px;
 }
 
 .column-content {
   width: 373px;
   height: 100%;
-  border: 1px solid black;
-}
+  margin: 0 auto;
 
-img {
-  width: 373px;
-  height: 200px;
-  object-fit: contain;
+  img {
+    width: 373px;
+    height: 200px;
+    object-fit: contain;
+  }
+
+  h4,
+  p,
+  a {
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+  }
+
+  h4 {
+    font-size: 24px;
+    line-height: 1.17;
+    letter-spacing: -0.55px;
+    color: #1c2e36;
+  }
+
+  p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #5b616c;
+  }
+
+  a {
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: #165fcf;
+    text-decoration: none;
+  }
 }
 </style>
