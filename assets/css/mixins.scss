@@ -1,0 +1,32 @@
+/****************************
+*****************************
+  MIXINS
+*****************************  
+****************************/
+
+@mixin flex-horizontal-column {
+  display: flex;
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    // width: 373px;
+    border: 1px solid red;
+  }
+}
+
+@mixin flex-vertical {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+}
