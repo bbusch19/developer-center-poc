@@ -58,6 +58,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1,
+h2 {
+  color: white;
+}
+
 .container {
   display: flex;
   margin: auto;

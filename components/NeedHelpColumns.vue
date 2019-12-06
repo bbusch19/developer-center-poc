@@ -2,10 +2,10 @@
   <section>
     <div class="container">
       <h2>{{ heading }}</h2>
-      <h4 v-if="subheading">{{ subheading }}</h4>
+      <h4 v-if="subheading" class="subheading">{{ subheading }}</h4>
       <div class="columns">
         <div v-for="(column, index) of columns" :key="index" class="column">
-          <h4>{{ column.heading }}</h4>
+          <h4 class="column-heading">{{ column.heading }}</h4>
           <p>{{ column.subheading }}</p>
           <BaseButton />
         </div>
@@ -38,6 +38,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.subheading {
+  font-weight: 400;
+}
+
+.column-heading {
+  font-weight: bold;
+}
+
 section {
   padding: 120px 80px;
   text-align: center;
