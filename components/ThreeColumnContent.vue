@@ -1,7 +1,10 @@
 <template>
   <section>
     <div class="row">
-      <ColumnContent v-for="column in content" :columnContent="column" />
+      <ColumnContent
+        v-for="column in content.columnContent"
+        :columnContent="column"
+      />
     </div>
   </section>
 </template>
@@ -14,7 +17,7 @@ export default {
     ColumnContent
   },
   props: {
-    content: Array
+    content: Object
   }
 }
 </script>
