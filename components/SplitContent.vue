@@ -71,24 +71,28 @@ h2 {
 
 .container {
   display: flex;
-  margin: auto;
-  max-width: 1280px;
-
-  & > div {
-    flex-basis: 100%;
-  }
 }
+
 section {
   padding: 100px 80px;
   background-color: grey;
   color: white;
 }
 
+.content {
+  flex-basis: 40%;
+}
+
 .image-container {
   margin-left: 15px;
 
   img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    flex-basis: 60%;
     width: 100%;
+    max-width: 735px;
   }
 }
 
