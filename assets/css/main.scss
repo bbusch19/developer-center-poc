@@ -2,6 +2,8 @@ html,
 body {
   font-family: Inter;
   color: #1c2e36;
+  width: 1450px;
+  margin: 0 auto;
 }
 
 section {
@@ -15,12 +17,5 @@ ul {
 
   li {
     list-style-type: none;
-    margin-bottom: 16px;
-
-    &::before {
-      content: url('/images/temp-icon-red.svg');
-      position: absolute;
-      left: 0;
-    }
   }
 }
