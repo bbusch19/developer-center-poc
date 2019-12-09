@@ -7,18 +7,18 @@
         <div v-for="(column, index) of columns" :key="index" class="column">
           <h4 class="column-heading">{{ column.heading }}</h4>
           <p>{{ column.subheading }}</p>
-          <BaseButton />
+          <BaseButtonLink to="#" />
         </div>
       </div>
     </div>
   </section>
 </template>
 <script>
-import BaseButton from '~/components/BaseButton'
+import BaseButtonLink from '~/components/BaseButtonLink'
 
 export default {
   components: {
-    BaseButton
+    BaseButtonLink
   },
   props: {
     heading: {
@@ -44,6 +44,7 @@ export default {
 
 .column-heading {
   font-weight: bold;
+  margin-top: 0;
 }
 
 section {

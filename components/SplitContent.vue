@@ -9,12 +9,15 @@
           Reduce underwriting overhead and make more informed decisions faster
           than ever.
         </p>
-        <ul>
-          <li>Build on the worlds’s Leading CAT Science</li>
-          <li>Supported by Key Third Party Insights</li>
-          <li>Customized for your Unique Risk Appetite</li>
-        </ul>
-        <BaseButton :classes="['ghost', 'primary']" />
+        <BaseList
+          :list-items="[
+            'Build on the worlds’s Leading CAT Science',
+            'Supported by Key Third Party Insights',
+            'Customized for your Unique Risk Appetite'
+          ]"
+        >
+        </BaseList>
+        <BaseButtonLink :classes="['ghost', 'primary']" to="/" />
       </div>
       <div class="image-container">
         <img :src="image" />
@@ -24,10 +27,13 @@
 </template>
 
 <script>
-import BaseButton from '~/components/BaseButton'
+import BaseButtonLink from '~/components/BaseButtonLink'
+import BaseList from '~/components/BaseList'
+
 export default {
   components: {
-    BaseButton
+    BaseButtonLink,
+    BaseList
   },
   props: {
     content: {
