@@ -9,7 +9,7 @@
       image="/images/SiteIq-hero-image.png"
       background-image="/images/SiteIQ-bg-pattern.png"
     />
-    <NeedHelpColumns
+    <TwoColumnContent
       :columns="[
         {
           heading: 'Live chat',
@@ -31,13 +31,13 @@
 <script>
 import HeroSearch from '~/components/HeroSearch'
 import SplitContent from '~/components/SplitContent'
-import NeedHelpColumns from '~/components/TwoColumnContent'
+import TwoColumnContent from '~/components/TwoColumnContent'
 
 export default {
   components: {
     HeroSearch,
     SplitContent,
-    NeedHelpColumns
+    TwoColumnContent
   },
   data() {
     return { test: 'I am a test piece of data' }
