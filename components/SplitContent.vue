@@ -85,6 +85,8 @@ section {
 }
 
 .image-container {
+  margin-left: 15px;
+
   img {
     width: 100%;
   }

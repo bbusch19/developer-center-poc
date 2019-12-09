@@ -34,6 +34,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/css/colors.scss';
+
 a {
   display: inline-block;
   border: 0;
@@ -47,13 +49,40 @@ a {
   cursor: pointer;
 
   &.primary {
-    background-color: #468fff;
+    background-color: $primary;
     color: white;
 
     &.ghost {
       background-color: white;
-      border: 2px solid #468fff;
+      border: 2px solid $primary;
       color: #468fff;
+
+      &:hover {
+        background-color: white;
+      }
+    }
+
+    &:hover {
+      background-color: $primary-hov;
+    }
+  }
+
+  &.secondary {
+    background-color: $secondary;
+    color: white;
+
+    &.ghost {
+      background-color: white;
+      border: 2px solid $secondary;
+      color: #468fff;
+
+      &:hover {
+        background-color: white;
+      }
+    }
+
+    &:hover {
+      background-color: $secondary-hov;
     }
   }
 }
