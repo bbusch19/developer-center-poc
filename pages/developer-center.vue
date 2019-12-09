@@ -31,7 +31,7 @@
 <script>
 import HeroSearch from '~/components/HeroSearch'
 import SplitContent from '~/components/SplitContent'
-import NeedHelpColumns from '~/components/NeedHelpColumns'
+import NeedHelpColumns from '~/components/TwoColumnContent'
 
 export default {
   components: {
