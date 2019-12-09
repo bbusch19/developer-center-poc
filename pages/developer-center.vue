@@ -27,7 +27,6 @@ export default {
   },
   data() {
     return {
-      test: 'I am a test piece of data',
       columnsContentNoTitle: {
         columnContent: [
           {
@@ -56,28 +55,36 @@ export default {
         ]
       },
       columnsContentWithTitle: {
-        title: 'tomtomt',
+        metaData: {
+          type: 'Case Studies',
+          title: 'A use-case for every risk appetite',
+          subtitle:
+            'SiteIQ helps optimize their workflow at every stage to move business along more efficiently.',
+          ctaText: 'View Case Study',
+          ctaLink: '#'
+        },
         columnContent: [
           {
             image: '/images/illustrations/three-column-illustration-1.jpg',
-            title: 'asdf',
+            title: 'Risk Screening',
             subtitle:
-              'Learn about API core concepts, tutorials, troubleshooting, and much more.',
+              'Quickly understand whether a location meets your risk appetite. Whether it is exposed to multiple perils or in an area of low hazard, you can assess a location in seconds so you can make a decision now or conduct deeper analysis later.',
             linkText: 'Go to documentation',
             linkHref: '#'
           },
           {
             image: '/images/illustrations/three-column-illustration-2.jpg',
-            title: 'API Reference',
-            subtitle: 'Customize RMS API, to help you get the data you need.',
+            title: 'Outlier Identification',
+            subtitle:
+              'Import a spreadsheet of locations and get the insights you need quickly. View scores of several locations, and use the system to filter on those that concern you most so you can focus your attention on the risks that could impact you the most.',
             linkText: 'View API',
             linkHref: '#'
           },
           {
             image: '/images/illustrations/three-column-illustration-3.jpg',
-            title: 'Community',
+            title: 'Costomized Guidelines',
             subtitle:
-              'Connecting with peers and discuss all about RMS and coding.',
+              'Set referral rules and risk card scores to match your underwriting guidelines and ensure locations fall within the rules you have set in seconds without having to find out whether a rule has been breached until it’s too late.',
             linkText: 'Join the community',
             linkHref: '#'
           }

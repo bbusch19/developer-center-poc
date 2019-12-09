@@ -25,12 +25,3 @@
     justify-content: space-between;
   }
 }
-
-@mixin flex-vertical {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  justify-content: space-between;
-}

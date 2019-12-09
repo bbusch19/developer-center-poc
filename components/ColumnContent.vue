@@ -1,10 +1,10 @@
 <template>
   <div class="column">
     <div class="column-content">
-      <img :src="columnContent.image" />
-      <h4>{{ columnContent.title }}</h4>
-      <p>{{ columnContent.subtitle }}</p>
-      <div class="link-container">
+      <img v-if="columnContent.image" :src="columnContent.image" />
+      <h4 v-if="columnContent.title">{{ columnContent.title }}</h4>
+      <p v-if="columnContent.subtitle">{{ columnContent.subtitle }}</p>
+      <div v-if="columnContent.linkHref" class="link-container">
         <a :href="columnContent.linkHref">{{ columnContent.linkText }}</a>
       </div>
     </div>
@@ -14,7 +14,10 @@
 <script>
 export default {
   props: {
-    columnContent: Object
+    columnContent: {
+      type: Object,
+      required: true
+    }
   }
 }
 </script>
