@@ -1,5 +1,6 @@
 <template>
   <div>
+    <BaseHeader />
     <nuxt />
   </div>
 </template>
@@ -17,3 +18,13 @@ html {
   box-sizing: border-box;
 }
 </style>
+
+<script>
+import BaseHeader from '~/components/BaseHeader'
+
+export default {
+  components: {
+    BaseHeader
+  }
+}
+</script>
