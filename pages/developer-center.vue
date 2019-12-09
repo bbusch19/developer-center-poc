@@ -10,6 +10,7 @@
     />
 
     <ThreeColumnContent :content="columnsContentNoTitle" />
+    <TwoColumnBillboard />
     <ThreeColumnContent :content="columnsContentWithTitle" />
   </div>
 </template>
@@ -18,12 +19,14 @@
 import HeroSearch from '~/components/HeroSearch'
 import SplitContent from '~/components/SplitContent'
 import ThreeColumnContent from '~/components/ThreeColumnContent'
+import TwoColumnBillboard from '~/components/TwoColumnBillboard'
 
 export default {
   components: {
     HeroSearch,
     SplitContent,
-    ThreeColumnContent
+    ThreeColumnContent,
+    TwoColumnBillboard
   },
   data() {
     return {

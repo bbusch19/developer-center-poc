@@ -76,4 +76,15 @@ section {
     width: 100%;
   }
 }
+
+ul {
+  li {
+    margin-bottom: 16px;
+    &::before {
+      content: url('/images/temp-icon-red.svg');
+      position: absolute;
+      left: 0;
+    }
+  }
+}
 </style>

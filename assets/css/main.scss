@@ -15,12 +15,5 @@ ul {
 
   li {
     list-style-type: none;
-    margin-bottom: 16px;
-
-    &::before {
-      content: url('/images/temp-icon-red.svg');
-      position: absolute;
-      left: 0;
-    }
   }
 }
