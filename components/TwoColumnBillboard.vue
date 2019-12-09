@@ -137,7 +137,8 @@ section {
     }
   }
   .column-content {
-    width: 600px;
+    width: 500px;
+    height: 231px;
     box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.35);
     padding: 44px 70px 41px 44px;
     display: flex;
