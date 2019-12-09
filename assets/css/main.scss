@@ -24,20 +24,3 @@ h2 {
 h4 {
   font-size: 24px;
 }
-
-ul {
-  position: relative;
-  font-size: 22px;
-  font-weight: 600;
-
-  li {
-    list-style-type: none;
-    margin-bottom: 16px;
-
-    &::before {
-      content: url('/images/temp-icon-red.svg');
-      position: absolute;
-      left: 0;
-    }
-  }
-}
