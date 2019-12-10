@@ -11,7 +11,19 @@
   </header>
 </template>
 
+<script>
+import BaseHeaderNavigation from '~/components/BaseHeaderNavigation'
+
+export default {
+  components: {
+    BaseHeaderNavigation
+  }
+}
+</script>
+
 <style lang="scss" scoped>
+@import '~/assets/css/colors.scss';
+
 header {
   display: flex;
   align-items: center;
@@ -29,20 +41,6 @@ header {
     margin-right: 18px;
   }
 }
-</style>
-
-<script>
-import BaseHeaderNavigation from '~/components/BaseHeaderNavigation'
-
-export default {
-  components: {
-    BaseHeaderNavigation
-  }
-}
-</script>
-
-<style lang="scss" scoped>
-@import '~/assets/css/colors.scss';
 
 p {
   margin: 0;
