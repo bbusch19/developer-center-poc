@@ -1,7 +1,7 @@
 <template>
   <section>
     <h1>{{ heading }}</h1>
-    <h3 v-if="subheading">{{ subheading }}</h3>
+    <h4 v-if="subheading" class="subheading">{{ subheading }}</h4>
     <SearchInput />
   </section>
 </template>
@@ -29,5 +29,9 @@ export default {
 section {
   padding: 100px 80px;
   text-align: center;
+}
+
+.subheading {
+  font-weight: 400;
 }
 </style>
