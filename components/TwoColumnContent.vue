@@ -49,6 +49,7 @@ export default {
 
 section {
   padding: 120px 80px;
+  border-top: 1px solid #e4e6ea;
   text-align: center;
 }
 

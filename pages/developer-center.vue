@@ -9,6 +9,9 @@
       image="/images/SiteIq-hero-image.png"
       background-image="/images/SiteIQ-bg-pattern.png"
     />
+    <ThreeColumnContent :content="columnsContentNoTitle" />
+    <TwoColumnBillboard />
+    <ThreeColumnContent :content="columnsContentWithTitle" />
     <TwoColumnContent
       :columns="[
         {
@@ -25,10 +28,6 @@
       heading="Need help?"
       subheading="Our support team is here to help you."
     />
-
-    <ThreeColumnContent :content="columnsContentNoTitle" />
-    <TwoColumnBillboard />
-    <ThreeColumnContent :content="columnsContentWithTitle" />
   </div>
 </template>
 
