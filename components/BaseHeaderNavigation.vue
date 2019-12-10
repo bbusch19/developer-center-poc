@@ -1,14 +1,18 @@
 <template>
   <nav role="navigation">
-    <span v-for="item of navigationItems" :key="item.text" class="primary-link">
-      <span v-if="item.to">
-        <nuxt-link :to="item.to" exact>{{ item.text }}</nuxt-link>
+    <span
+      v-for="{ text, to, items } of navigationItems"
+      :key="text"
+      class="link-container"
+    >
+      <span v-if="to">
+        <nuxt-link :to="to" class="primary-link" exact>{{ text }}</nuxt-link>
       </span>
-      <span v-else
-        >{{ item.text }} <img src="/images/icons/arrow-down.svg"
-      /></span>
-      <ul v-if="item.items" class="subnav">
-        <li v-for="subItem in item.items" :key="subItem.text">
+      <span v-else class="primary-link"
+        >{{ text }} <img src="/images/icons/arrow-down.svg" />
+      </span>
+      <ul v-if="items" class="subnav">
+        <li v-for="subItem in items" :key="subItem.text">
           <a v-if="subItem.to" :href="subItem.to">{{ subItem.text }}</a>
         </li>
       </ul>
@@ -61,33 +65,36 @@ nav {
 }
 
 .primary-link {
-  padding: 30px 13px;
+  padding: 30px 13px 27px;
   font-weight: 500;
+  display: inline-block;
+}
 
-  a,
-  span {
-    text-decoration: none;
-    color: $darker-text;
-
-    img {
-      display: inline-block;
-      vertical-align: bottom;
-      width: 15px;
-      height: 15px;
-      opacity: 0.6;
-    }
-  }
-
-  .nuxt-link-active {
-    color: $primary;
-    border-bottom: 3px solid $primary;
-  }
-
+.link-container {
   &:hover {
     .subnav {
       display: block;
     }
   }
+}
+
+a,
+span {
+  text-decoration: none;
+  color: $darker-text;
+
+  img {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 15px;
+    height: 15px;
+    opacity: 0.6;
+  }
+}
+
+.nuxt-link-active {
+  color: $primary;
+  border-bottom: 3px solid $primary;
 }
 
 .subnav {
