@@ -1,5 +1,5 @@
 <template>
-  <li>{{ item }}</li>
+  <li><slot></slot></li>
 </template>
 
 <script>
@@ -7,7 +7,7 @@ export default {
   props: {
     item: {
       type: String,
-      required: true
+      default: null
     }
   }
 }

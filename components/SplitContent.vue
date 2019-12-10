@@ -1,26 +1,26 @@
 <template>
-  <section :style="backgroundImageStyles">
+  <section :style="backgroundImageStyles" :class="slice.slice_label">
     <div class="container">
       <div class="content">
-        <p>FEATURED</p>
-        <img src="/images/logo-site-iq.png" />
-        <h2>Assess Location Risk in Seconds</h2>
-        <p>
-          Reduce underwriting overhead and make more informed decisions faster
-          than ever.
-        </p>
-        <BaseList
-          :list-items="[
-            'Build on the worlds’s Leading CAT Science',
-            'Supported by Key Third Party Insights',
-            'Customized for your Unique Risk Appetite'
-          ]"
+        <prismic-rich-text
+          :field="slice.primary.side_content"
+          class="richText"
+        />
+        <prismic-link
+          v-if="slice.primary.button_link"
+          :field="slice.primary.button_link"
         >
-        </BaseList>
-        <BaseButtonLink :classes="['ghost', 'primary']" to="/" />
+          <BaseButtonLink
+            :classes="[
+              slice.primary.button_link_class,
+              backgroundImageStyles && 'ghost'
+            ]"
+            to="/"
+          />
+        </prismic-link>
       </div>
       <div class="image-container">
-        <img :src="image" />
+        <img :src="slice.primary.main_image.url" />
       </div>
     </div>
   </section>
@@ -28,32 +28,24 @@
 
 <script>
 import BaseButtonLink from '~/components/BaseButtonLink'
-import BaseList from '~/components/BaseList'
 
 export default {
   components: {
-    BaseButtonLink,
-    BaseList
+    BaseButtonLink
   },
   props: {
-    content: {
-      type: String,
+    slice: {
+      type: Object,
       required: true
-    },
-    image: {
-      type: String,
-      default: null
-    },
-    backgroundImage: {
-      type: String,
-      default: null
     }
   },
   computed: {
     backgroundImageStyles() {
+      const backgroundImage = this.slice.primary.background_image.url
+
       return (
-        this.backgroundImage && {
-          backgroundImage: `url(${this.backgroundImage}),  linear-gradient(-49deg, #92BCFE 0%, #3872CC 99%)`,
+        backgroundImage && {
+          backgroundImage: `url(${backgroundImage}),  linear-gradient(-49deg, #92BCFE 0%, #3872CC 99%)`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover'
         }
@@ -64,11 +56,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1,
-h2 {
-  color: white;
-}
-
 .container {
   display: flex;
 }
@@ -76,7 +63,10 @@ h2 {
 section {
   padding: 100px 80px;
   background-color: grey;
-  color: white;
+
+  &.light-text {
+    color: white;
+  }
 }
 
 .content {
@@ -93,17 +83,6 @@ section {
     flex-basis: 60%;
     width: 100%;
     max-width: 735px;
-  }
-}
-
-ul {
-  li {
-    margin-bottom: 16px;
-    &::before {
-      content: url('/images/temp-icon-red.svg');
-      position: absolute;
-      left: 0;
-    }
   }
 }
 </style>

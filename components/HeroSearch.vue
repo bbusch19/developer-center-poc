@@ -1,7 +1,9 @@
 <template>
   <section>
-    <h1>{{ heading }}</h1>
-    <h4 v-if="subheading" class="subheading">{{ subheading }}</h4>
+    <h1>{{ $prismic.richTextAsPlain(heading) }}</h1>
+    <h4 v-if="subheading" class="subheading">
+      {{ $prismic.richTextAsPlain(subheading) }}
+    </h4>
     <SearchInput />
   </section>
 </template>
@@ -14,11 +16,11 @@ export default {
   },
   props: {
     heading: {
-      type: String,
+      type: Array,
       required: true
     },
     subheading: {
-      type: String,
+      type: Array,
       default: null
     }
   }

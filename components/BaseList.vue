@@ -1,24 +1,20 @@
 <template>
   <ul>
-    <BaseListItem
+    <slot></slot>
+    <!-- <BaseListItem
       v-for="(item, index) of listItems"
       :key="index"
       :item="item"
-    />
+    /> -->
   </ul>
 </template>
 
 <script>
-import BaseListItem from '~/components/BaseListItem'
-
 export default {
-  components: {
-    BaseListItem
-  },
   props: {
     listItems: {
       type: Array,
-      required: true
+      default: null
     }
   }
 }
