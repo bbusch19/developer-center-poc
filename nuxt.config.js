@@ -1,3 +1,5 @@
+import PrismicConfig from './prismic.config'
+
 export default {
   mode: 'spa',
   /*
@@ -14,7 +16,17 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        innerHTML:
+          '{ window.prismic = { endpoint: "' +
+          PrismicConfig.apiEndpoint +
+          '"} }'
+      },
+      { src: '//static.cdn.prismic.io/prismic.min.js' }
+    ],
+    __dangerouslyDisableSanitizers: ['script']
   },
   /*
    ** Customize the progress-bar color
