@@ -1,5 +1,5 @@
 <template>
-  <section :style="{ backgroundImageStyles }">
+  <section :style="backgroundImageStyles">
     <div class="container">
       <div class="content">
         <p>FEATURED</p>
@@ -9,12 +9,15 @@
           Reduce underwriting overhead and make more informed decisions faster
           than ever.
         </p>
-        <ul>
-          <li>Build on the worlds’s Leading CAT Science</li>
-          <li>Supported by Key Third Party Insights</li>
-          <li>Customized for your Unique Risk Appetite</li>
-        </ul>
-        <BaseButton :classes="['ghost', 'primary']" />
+        <BaseList
+          :list-items="[
+            'Build on the worlds’s Leading CAT Science',
+            'Supported by Key Third Party Insights',
+            'Customized for your Unique Risk Appetite'
+          ]"
+        >
+        </BaseList>
+        <BaseButtonLink :classes="['ghost', 'primary']" to="/" />
       </div>
       <div class="image-container">
         <img :src="image" />
@@ -24,10 +27,13 @@
 </template>
 
 <script>
-import BaseButton from '~/components/BaseButton'
+import BaseButtonLink from '~/components/BaseButtonLink'
+import BaseList from '~/components/BaseList'
+
 export default {
   components: {
-    BaseButton
+    BaseButtonLink,
+    BaseList
   },
   props: {
     content: {
@@ -47,7 +53,9 @@ export default {
     backgroundImageStyles() {
       return (
         this.backgroundImage && {
-          backgroundImage: `url(${this.backgroundImage})`
+          backgroundImage: `url(${this.backgroundImage}),  linear-gradient(-49deg, #92BCFE 0%, #3872CC 99%)`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover'
         }
       )
     }
@@ -56,24 +64,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1,
+h2 {
+  color: white;
+}
+
 .container {
   display: flex;
-  margin: auto;
-  max-width: 1280px;
-
-  & > div {
-    flex-basis: 100%;
-  }
 }
+
 section {
   padding: 100px 80px;
   background-color: grey;
   color: white;
 }
 
+.content {
+  flex-basis: 40%;
+}
+
 .image-container {
+  margin-left: 15px;
+
   img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    flex-basis: 60%;
     width: 100%;
+    max-width: 735px;
   }
 }
 
