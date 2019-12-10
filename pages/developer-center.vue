@@ -7,12 +7,28 @@
     <SplitContent
       content="Hey there this is the content!"
       image="/images/SiteIq-hero-image.png"
+      background-image="/images/SiteIQ-bg-pattern.png"
     />
-
     <DeveloperAPIToolkit />
     <ThreeColumnContent :content="columnsContentNoTitle" />
     <TwoColumnBillboard />
     <ThreeColumnContent :content="columnsContentWithTitle" />
+    <TwoColumnContent
+      :columns="[
+        {
+          heading: 'Live chat',
+          subheading:
+            'We are available from Monday to Friday. Expected response time should be whithin a few minutes.'
+        },
+        {
+          heading: 'Email',
+          subheading:
+            'We are available from Monday to Friday. Expected response time should be whithin 24 hours.'
+        }
+      ]"
+      heading="Need help?"
+      subheading="Our support team is here to help you."
+    />
   </div>
 </template>
 
@@ -20,6 +36,7 @@
 import HeroSearch from '~/components/HeroSearch'
 import SplitContent from '~/components/SplitContent'
 import DeveloperAPIToolkit from '~/components/DeveloperAPIToolkit'
+import TwoColumnContent from '~/components/TwoColumnContent'
 import ThreeColumnContent from '~/components/ThreeColumnContent'
 import TwoColumnBillboard from '~/components/TwoColumnBillboard'
 
@@ -27,6 +44,7 @@ export default {
   components: {
     HeroSearch,
     SplitContent,
+    TwoColumnContent,
     ThreeColumnContent,
     TwoColumnBillboard,
     DeveloperAPIToolkit

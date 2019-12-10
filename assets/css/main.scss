@@ -1,8 +1,8 @@
 html,
 body {
   font-family: Inter;
-  color: #1c2e36;
-  width: 1450px;
+  color: #5b616c;
+  max-width: 1450px;
   margin: 0 auto;
 }
 
@@ -10,12 +10,19 @@ section {
   position: relative;
 }
 
-ul {
-  position: relative;
-  font-size: 22px;
-  font-weight: 600;
+h1,
+h2 {
+  color: #1c2e36;
+}
 
-  li {
-    list-style-type: none;
-  }
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 42px;
+}
+
+h4 {
+  font-size: 24px;
 }
