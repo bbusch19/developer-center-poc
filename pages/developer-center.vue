@@ -9,6 +9,7 @@
       image="/images/SiteIq-hero-image.png"
     />
 
+    <DeveloperAPIToolkit />
     <ThreeColumnContent :content="columnsContentNoTitle" />
     <TwoColumnBillboard />
     <ThreeColumnContent :content="columnsContentWithTitle" />
@@ -18,6 +19,7 @@
 <script>
 import HeroSearch from '~/components/HeroSearch'
 import SplitContent from '~/components/SplitContent'
+import DeveloperAPIToolkit from '~/components/DeveloperAPIToolkit'
 import ThreeColumnContent from '~/components/ThreeColumnContent'
 import TwoColumnBillboard from '~/components/TwoColumnBillboard'
 
@@ -26,7 +28,8 @@ export default {
     HeroSearch,
     SplitContent,
     ThreeColumnContent,
-    TwoColumnBillboard
+    TwoColumnBillboard,
+    DeveloperAPIToolkit
   },
   data() {
     return {

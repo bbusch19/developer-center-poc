@@ -5,8 +5,7 @@
 ****************************/
 
 /*
-  Mixin to horizontally display columns,
-  evenly spaced.
+  Horizontally display evenly spaced columns
   Structure of:  wrapper > .row > .column;
 */
 @mixin flex-horizontal-column {
@@ -14,14 +13,90 @@
   .row {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     width: 100%;
+    justify-content: space-between;
   }
   .column {
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
-    flex: 1;
-    justify-content: space-between;
+  }
+}
+
+/*
+  Right facing caret.
+  @param $size = px
+  @param $width = px
+  @param $color = hex, rgba
+  @param $bg-color = hex, rgba
+  @param $top-position = absolute top position
+  @param $right-position = absolute right position
+*/
+@mixin right-facing-caret(
+  $size,
+  $width,
+  $color,
+  $bg-color,
+  $top-position,
+  $right-position
+) {
+  &:before {
+    content: '';
+    position: absolute;
+    top: $top-position;
+    right: $right-position;
+    border-left: $size solid $color;
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: ($top-position + $width);
+    right: ($right-position + $width);
+    border-left: ($size - $width) solid $bg-color;
+    border-top: ($size - $width) solid transparent;
+    border-bottom: ($size - $width) solid transparent;
+  }
+}
+
+/*
+  Right facing isosceles triangle.
+  @param $color = hex, rgba
+  @param $height-width = px
+*/
+@mixin triangle-right($color, $height-width) {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: ($height-width/2) 0 ($height-width/2) $height-width;
+  border-color: transparent transparent transparent $color;
+}
+
+/*
+  Right facing isosceles triangle with trailing handle/arrow.
+  @param $color = hex, rgba
+  @param $triangle-height = px
+  @param $arrow-width = px
+*/
+@mixin right-arrow($color, $triangle-height, $arrow-width) {
+  position: relative;
+  display: inline-block;
+  width: $arrow-width - 2px;
+  height: $triangle-height;
+  &:before {
+    content: '';
+    position: absolute;
+    width: $arrow-width - 2px - $triangle-height;
+    height: 2px;
+    background: $color;
+  }
+  &:after {
+    @include triangle-right($color, $triangle-height);
+    position: absolute;
+    top: -2px;
+    right: 0;
   }
 }
