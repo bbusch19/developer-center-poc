@@ -7,6 +7,10 @@ export default function(doc) {
     return '/not-found'
   }
 
+  if (doc.uid === 'home') {
+    return '/'
+  }
+
   if (doc.type === 'page') {
     return '/' + doc.uid
   }
