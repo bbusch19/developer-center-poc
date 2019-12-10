@@ -149,6 +149,7 @@ export default {
   }
   .content-column {
     margin: 16px 48px 19px 17px;
+    flex: 1;
   }
   p {
     color: #aaaaaa;
