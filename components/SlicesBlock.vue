@@ -9,6 +9,10 @@
         v-if="slice.slice_type === 'split_content'"
         :slice="slice"
       />
+      <TwoColumnBillboard
+        v-if="slice.slice_type === 'two_column_billboard'"
+        :slice="slice"
+      />
     </div>
   </div>
 </template>
@@ -16,10 +20,12 @@
 <script>
 import HeroSearch from '~/components/HeroSearch'
 import SplitContent from '~/components/SplitContent'
+import TwoColumnBillboard from '~/components/TwoColumnBillboard'
 export default {
   components: {
     HeroSearch,
-    SplitContent
+    SplitContent,
+    TwoColumnBillboard
   },
   props: {
     slices: {

@@ -7,6 +7,7 @@ import prismicDOM from 'prismic-dom'
 import linkResolver from './link-resolver'
 
 const Elements = prismicDOM.RichText.Elements
+console.log(prismicDOM.RichText)
 
 export default function(type, element, content, children) {
   // Generate links to Prismic Documents as <nuxt-link> components
