@@ -1,13 +1,21 @@
 <template>
   <section>
     <div class="container">
-      <h2>{{ heading }}</h2>
-      <h4 v-if="subheading" class="subheading">{{ subheading }}</h4>
+      <h2>{{ $prismic.richTextAsPlain(slice.primary.heading) }}</h2>
+      <h4 v-if="slice.primary.subheading" class="subheading">
+        {{ $prismic.richTextAsPlain(slice.primary.subheading) }}
+      </h4>
       <div class="columns">
-        <div v-for="(column, index) of columns" :key="index" class="column">
-          <h4 class="column-heading">{{ column.heading }}</h4>
-          <p>{{ column.subheading }}</p>
-          <BaseButtonLink to="#" />
+        <div
+          v-for="({ column_content, button_link, button_link_class },
+          index) of slice.items"
+          :key="index"
+          class="column"
+        >
+          <prismic-rich-text :class="$style.richText" :field="column_content" />
+          <prismic-link :field="button_link">
+            <BaseButtonLink :classes="[button_link_class]" />
+          </prismic-link>
         </div>
       </div>
     </div>
@@ -21,21 +29,23 @@ export default {
     BaseButtonLink
   },
   props: {
-    heading: {
-      type: String,
-      required: true
-    },
-    subheading: {
-      type: String,
-      default: null
-    },
-    columns: {
-      type: Array,
+    slice: {
+      type: Object,
       required: true
     }
   }
 }
 </script>
+
+<style lang="scss" module>
+@import '~/assets/css/colors.scss';
+
+.richText {
+  h4 {
+    color: $darker-text;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .subheading {
