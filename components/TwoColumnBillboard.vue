@@ -30,7 +30,7 @@
               :field="column_content"
               :class="[
                 $style['rich-text'],
-                text_color === 'light' && $style.dark
+                text_color === 'light-text' && $style.light
               ]"
             />
           </div>
@@ -93,7 +93,7 @@ export default {
     }
   }
 
-  &.dark {
+  &.light {
     h4 {
       color: #ffffff;
     }
