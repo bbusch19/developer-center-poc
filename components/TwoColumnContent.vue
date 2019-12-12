@@ -38,6 +38,7 @@ export default {
 </script>
 
 <style lang="scss" module>
+// Adding a module here because of rich text inheritance
 @import '~/assets/css/colors.scss';
 
 .richText {

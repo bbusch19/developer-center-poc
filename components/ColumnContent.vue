@@ -2,9 +2,6 @@
   <div class="column">
     <div class="column-content">
       <prismic-rich-text :class="$style.richText" :field="columnContent" />
-      <!-- <img v-if="columnContent.image" :src="columnContent.image" />
-      <h4 v-if="columnContent.title">{{ columnContent.title }}</h4>
-      <p v-if="columnContent.subtitle">{{ columnContent.subtitle }}</p> -->
       <div v-if="columnContent.linkHref" class="link-container">
         <a :href="columnContent.linkHref">{{ columnContent.linkText }}</a>
       </div>
@@ -24,6 +21,7 @@ export default {
 </script>
 
 <style lang="scss" module>
+// We need a module here thanks to rich text style inheritance
 .richText {
   img {
     max-width: 100%;
