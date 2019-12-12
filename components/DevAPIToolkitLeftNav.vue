@@ -63,7 +63,7 @@ ul {
     }
     .caret {
       visibility: hidden;
-      @include right-facing-caret(8px, 2px, #ffffff, #1c2636, 12px, 13px);
+      @include right-facing-caret(8px, 2px, #ffffff, #1c2636, 10px, 13px);
     }
   }
 }
