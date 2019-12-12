@@ -1,11 +1,13 @@
 <template>
   <ul>
-    <slot></slot>
-    <!-- <BaseListItem
-      v-for="(item, index) of listItems"
-      :key="index"
-      :item="item"
-    /> -->
+    <template v-if="listItems">
+      <BaseListItem
+        v-for="(item, index) of listItems"
+        :key="index"
+        :item="item"
+      />
+    </template>
+    <slot v-else></slot>
   </ul>
 </template>
 

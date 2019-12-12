@@ -1,5 +1,8 @@
 <template>
-  <li><slot></slot></li>
+  <li>
+    <span v-if="item">{{ item }}</span>
+    <slot v-else></slot>
+  </li>
 </template>
 
 <script>
