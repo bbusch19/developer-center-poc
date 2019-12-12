@@ -1,5 +1,8 @@
 <template>
-  <li>{{ item }}</li>
+  <li>
+    <span v-if="item">{{ item }}</span>
+    <slot v-else></slot>
+  </li>
 </template>
 
 <script>
@@ -7,7 +10,7 @@ export default {
   props: {
     item: {
       type: String,
-      required: true
+      default: null
     }
   }
 }

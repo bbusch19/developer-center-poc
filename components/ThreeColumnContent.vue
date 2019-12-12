@@ -1,33 +1,45 @@
 <template>
   <section>
-    <div v-if="content.metaData" class="meta-container">
-      <p class="meta-type">{{ content.metaData.type }}</p>
-      <h4>{{ content.metaData.title }}</h4>
-      <p class="meta-subtitle">{{ content.metaData.subtitle }}</p>
+    <div class="meta-container">
+      <p class="meta-type">
+        {{ $prismic.richTextAsPlain(slice.primary.callout) }}
+      </p>
+      <h4>{{ $prismic.richTextAsPlain(slice.primary.heading) }}</h4>
+      <p class="meta-subtitle">
+        {{ $prismic.richTextAsPlain(slice.primary.subheading) }}
+      </p>
     </div>
     <div class="row-container">
       <div class="row">
         <ColumnContent
-          v-for="column in content.columnContent"
-          :columnContent="column"
+          v-for="(item, index) in slice.items"
+          :columnContent="item.column_content"
+          :key="index"
         />
       </div>
     </div>
-    <div v-if="content.metaData" class="meta-cta-container">
-      <a href="content.metaData.ctaLink">{{ content.metaData.ctaText }}</a>
+    <div v-if="slice.primary.button_link" class="meta-cta-container">
+      <prismic-link :field="slice.primary.button_link">
+        <BaseButtonLink
+          :text="slice.primary.button_link_text"
+          :classes="[slice.primary.button_link_class]"
+        />
+      </prismic-link>
     </div>
   </section>
 </template>
 
 <script>
 import ColumnContent from '~/components/ColumnContent'
+import BaseButtonLink from '~/components/BaseButtonLink'
 
 export default {
   components: {
-    ColumnContent
+    ColumnContent,
+    BaseButtonLink
   },
   props: {
-    content: {
+    slice: {
       type: Object,
       required: true
     }
@@ -74,19 +86,6 @@ section {
 }
 
 .meta-cta-container {
-  width: 245px;
-  height: 42px;
-  background-color: #165fcf;
   text-align: center;
-  margin: 60px auto;
-  a {
-    line-height: 42px;
-    height: 100%;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #ffffff;
-    text-decoration: none;
-  }
 }
 </style>

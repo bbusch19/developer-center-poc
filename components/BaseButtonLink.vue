@@ -22,7 +22,7 @@ export default {
     },
     to: {
       type: String,
-      required: true
+      default: ''
     }
   },
   computed: {

@@ -1,9 +1,7 @@
 <template>
   <div class="column">
     <div class="column-content">
-      <img v-if="columnContent.image" :src="columnContent.image" />
-      <h4 v-if="columnContent.title">{{ columnContent.title }}</h4>
-      <p v-if="columnContent.subtitle">{{ columnContent.subtitle }}</p>
+      <prismic-rich-text :class="$style.richText" :field="columnContent" />
       <div v-if="columnContent.linkHref" class="link-container">
         <a :href="columnContent.linkHref">{{ columnContent.linkText }}</a>
       </div>
@@ -15,23 +13,18 @@
 export default {
   props: {
     columnContent: {
-      type: Object,
+      type: Array,
       required: true
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.column-content {
-  width: 373px;
-  height: 100%;
-  margin: 0 auto;
-
+<style lang="scss" module>
+// We need a module here thanks to rich text style inheritance
+.richText {
   img {
-    width: 373px;
-    height: 200px;
-    object-fit: contain;
+    max-width: 100%;
   }
 
   h4,
@@ -64,5 +57,12 @@ export default {
     color: #165fcf;
     text-decoration: none;
   }
+}
+</style>
+
+<style lang="scss" scoped>
+.column-content {
+  height: 100%;
+  margin: 0 20px;
 }
 </style>
