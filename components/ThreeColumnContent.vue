@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="meta-container">
+    <div v-if="hasTitleSection" class="meta-container">
       <p class="meta-type">
         {{ $prismic.richTextAsPlain(slice.primary.callout) }}
       </p>
@@ -18,7 +18,7 @@
         />
       </div>
     </div>
-    <div v-if="slice.primary.button_link" class="meta-cta-container">
+    <div v-if="slice.primary.button_link.id" class="meta-cta-container">
       <prismic-link :field="slice.primary.button_link">
         <BaseButtonLink
           :text="slice.primary.button_link_text"
@@ -42,6 +42,16 @@ export default {
     slice: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    hasTitleSection() {
+      // Check to see if we have any headers for the section
+      return (
+        this.slice.primary.callout.length > 0 ||
+        this.slice.primary.heading.length > 0 ||
+        this.slice.primary.subheading.length > 0
+      )
     }
   }
 }
