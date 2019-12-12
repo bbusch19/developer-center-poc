@@ -13,6 +13,10 @@
         v-if="slice.slice_type === 'two_column_billboard'"
         :slice="slice"
       />
+      <DeveloperAPIToolkit
+        v-if="slice.slice_type === 'dev_api_toolkit'"
+        :slice="slice"
+      />
       <TwoColumnContent
         v-if="slice.slice_type === 'two_column_content'"
         :slice="slice"
@@ -28,6 +32,7 @@
 <script>
 import HeroSearch from '~/components/HeroSearch'
 import SplitContent from '~/components/SplitContent'
+import DeveloperAPIToolkit from '~/components/DeveloperAPIToolkit'
 import TwoColumnBillboard from '~/components/TwoColumnBillboard'
 import TwoColumnContent from '~/components/TwoColumnContent'
 import ThreeColumnContent from '~/components/ThreeColumnContent'
@@ -36,6 +41,7 @@ export default {
   components: {
     HeroSearch,
     SplitContent,
+    DeveloperAPIToolkit,
     TwoColumnBillboard,
     TwoColumnContent,
     ThreeColumnContent

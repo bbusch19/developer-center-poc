@@ -21,7 +21,7 @@ export default {
       const document = await api.getByID('XfKDBhEAACIA-Mwi')
       const pageContent = document.data
       const slices = pageContent.body
-      console.log(slices)
+      console.log(24, slices)
 
       return {
         pageContent,
