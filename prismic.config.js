@@ -1,5 +1,5 @@
 const api = {
-  apiEndpoint: 'https://developer-center-poc.prismic.io/api/v2'
+  apiEndpoint: 'https://rms-poc.prismic.io/api/v2'
 }
 
 module.exports = api

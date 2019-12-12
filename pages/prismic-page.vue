@@ -17,7 +17,7 @@ export default {
       const api = await Prismic.getApi(PrismicConfig.apiEndpoint, { req })
 
       // Query to get blog home content
-      const document = await api.getByID('Xe_iyBEAAN-vcDxb')
+      const document = await api.getByID('XfKDBhEAACIA-Mwi')
       const pageContent = document.data
       const slices = pageContent.body
       console.log(slices)
