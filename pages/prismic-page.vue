@@ -17,6 +17,7 @@ export default {
       const api = await Prismic.getApi(PrismicConfig.apiEndpoint, { req })
 
       // Query to get blog home content
+      // TODO: Update folder structure and API call to generate dynamic routes
       const document = await api.getByID('XfKDBhEAACIA-Mwi')
       const pageContent = document.data
       const slices = pageContent.body
