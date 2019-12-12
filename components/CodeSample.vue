@@ -1,34 +1,34 @@
 <template>
   <div class="code-sample-container">
     <div class="cs-header-footer cs-header">
-      <p>{{ content.title }}</p>
+      <p>{{ codeSample.title }}</p>
     </div>
     <div class="cs-body">
       <div class="row">
         <div class="nums-column column">
           <ul>
-            <li v-for="(num, index) in content.nums">{{ index }}</li>
+            <li v-for="(num, index) in codeSample.nums">{{ index }}</li>
           </ul>
         </div>
         <div class="content-column column">
-          <p>{{ content.codeContent }}</p>
+          <p>{{ codeSample.codeContent }}</p>
         </div>
       </div>
     </div>
     <div class="cs-header-footer cs-footer">
       <div class="language-container cta-container">
-        <p class="language">{{ content.language }}</p>
+        <p class="language">{{ codeSample.language }}</p>
       </div>
       <div class="right-container cta-container">
         <div class="help-container">
-          <a>{{ content.help.text }}</a>
+          <a>{{ codeSample.help.text }}</a>
         </div>
         <div class="run-container">
           <div>
             <div class="triangle-container">
               <span></span>
             </div>
-            <p class="run-text">{{ content.run.text }}</p>
+            <p class="run-text">{{ codeSample.run.text }}</p>
           </div>
         </div>
       </div>
@@ -38,10 +38,22 @@
 
 <script>
 export default {
-  props: {
-    content: {
-      type: Object,
-      required: true
+  data() {
+    return {
+      codeSample: {
+        title: 'CAT Event request API key',
+        codeContent: '//This is dummy data.',
+        language: 'Node 8',
+        nums: 12,
+        help: {
+          text: 'help',
+          link: '#'
+        },
+        run: {
+          text: 'run',
+          link: '#'
+        }
+      }
     }
   }
 }

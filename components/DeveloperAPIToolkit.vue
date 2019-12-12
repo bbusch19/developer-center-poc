@@ -1,16 +1,16 @@
 <template>
   <section>
     <div class="meta-container">
-      <h4>{{ metaData.title }}</h4>
-      <p>{{ metaData.subtitle }}</p>
+      <h4>{{ $prismic.richTextAsPlain(slice.primary.title) }}</h4>
+      <p>{{ $prismic.richTextAsPlain(slice.primary.subtitle) }}</p>
     </div>
     <div class="row-container">
       <div class="row">
         <div class="column">
-          <LeftNav :nav-data="leftNav" />
+          <LeftNav :nav-data="slice.primary" />
         </div>
         <div class="column">
-          <CodeSample :content="codeSample" />
+          <CodeSample />
         </div>
       </div>
     </div>
@@ -26,55 +26,10 @@ export default {
     LeftNav,
     CodeSample
   },
-  data() {
-    return {
-      metaData: {
-        title: 'Developers APIs toolkit',
-        subtitle:
-          'We obsessively seek out elegant, composable abstractions that enable robust, scalable, flexible integrations. Because we eliminate needless complexity and extraneous details, you can get up and running with RMS in just a couple of minutes.'
-      },
-      leftNav: {
-        navItems: [
-          {
-            text: 'CAT Events',
-            href: '#',
-            isActive: true
-          },
-          {
-            text: 'Customers',
-            href: '#',
-            isActive: false
-          },
-          {
-            text: 'Subscriptions',
-            href: '#',
-            isActive: false
-          },
-          {
-            text: 'Reporting',
-            href: '#',
-            isActive: false
-          }
-        ],
-        fullAPIRef: {
-          text: 'Full Api Reference',
-          href: '#'
-        }
-      },
-      codeSample: {
-        title: 'CAT Event request API key',
-        codeContent: '//This is dummy data.',
-        language: 'Node 8',
-        nums: 12,
-        help: {
-          text: 'help',
-          link: '#'
-        },
-        run: {
-          text: 'run',
-          link: '#'
-        }
-      }
+  props: {
+    slice: {
+      type: Object,
+      required: true
     }
   }
 }

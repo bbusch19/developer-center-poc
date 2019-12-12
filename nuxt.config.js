@@ -43,8 +43,7 @@ export default {
     '~/plugins/global-components.js',
     '~/plugins/link-resolver.js',
     '~/plugins/html-serializer.js',
-    '~/plugins/prismic-vue.js',
-    '~/plugins/vue-highlightjs'
+    '~/plugins/prismic-vue.js'
   ],
   /*
    ** Nuxt.js dev-modules

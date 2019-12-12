@@ -2,16 +2,19 @@
   <div class="left-nav-container">
     <ul>
       <li
-        v-for="(item, index) in navData.navItems"
-        :class="{ active: item.isActive }"
-        @click="activeNav(index)"
+        v-for="(item, index) in navData.left_nav_items"
+        :class="{ active: index === 0 }"
       >
         <a>{{ item.text }}</a>
         <span class="caret"></span>
       </li>
     </ul>
     <p>
-      <a :href="navData.fullAPIRef.href">{{ navData.fullAPIRef.text }}</a>
+      <a
+        :href="navData.full_api_reference_link.url"
+        target="navData.full_api_reference_link.target"
+        >{{ navData.full_api_reference_link_text }}</a
+      >
       <span></span>
     </p>
   </div>
@@ -23,21 +26,6 @@ export default {
     navData: {
       type: Object,
       required: true
-    }
-  },
-  methods: {
-    activeNav(navItemIndex) {
-      const navItems = this.navData.navItems
-
-      navItems.forEach((item, index) => {
-        if (navItemIndex === index) {
-          item.isActive = true
-        } else {
-          item.isActive = false
-        }
-      })
-
-      return navItems
     }
   }
 }
@@ -58,7 +46,7 @@ ul {
     height: 35px;
     line-height: 35px;
     margin: 0 0 6px 0;
-    padding: 0 0 6px 12px;
+    padding: 0 0 0 12px;
     &.active,
     &:hover {
       border-radius: 5px;
@@ -75,7 +63,7 @@ ul {
     }
     .caret {
       visibility: hidden;
-      @include right-facing-caret(8px, 2px, #ffffff, #1c2636, 12px, 13px);
+      @include right-facing-caret(8px, 2px, #ffffff, #1c2636, 10px, 13px);
     }
   }
 }
