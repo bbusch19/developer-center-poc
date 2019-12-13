@@ -1,18 +1,37 @@
 <template>
-  <div class="code-sample-container">
+  <div class="code-sample-container line-numbers">
     <div class="cs-header-footer cs-header">
       <p>{{ codeSample.title }}</p>
     </div>
     <div class="cs-body">
       <div class="row">
-        <div class="nums-column column">
+        <!--         <div class="nums-column column">
           <ul>
             <li v-for="(num, index) in codeSample.nums">{{ index }}</li>
           </ul>
         </div>
         <div class="content-column column">
           <p>{{ codeSample.codeContent }}</p>
-        </div>
+        </div> -->
+
+        <!--         <prism-editor
+          :code="codeSample.codeContent"
+          language="js"
+        ></prism-editor> -->
+        <!-- <prism language="javascript">{{ code }}</prism> -->
+        <!--         <prism language="js" class="line-numbers" data-linenumber>{{
+          codeSample.codeTest
+        }}</prism> -->
+
+        <!--         <prism-editor :code="code" language="js"></prism-editor> -->
+
+        <pre class="language-js">
+  <code>
+    export default {
+      name: 'hello'
+    }
+  </code>
+</pre>
       </div>
     </div>
     <div class="cs-header-footer cs-footer">
@@ -37,12 +56,32 @@
 </template>
 
 <script>
+// import PrismEditor from 'vue-prism-editor'
+// import Prism from 'vue-prism-component'
+
 export default {
+  // components: {
+  //   PrismEditor
+  //   // Prism
+  // },
   data() {
     return {
+      code: 'const a=b',
       codeSample: {
         title: 'CAT Event request API key',
         codeContent: '//This is dummy data.',
+        codeTest: `// Require the RMS library with a test secret key.\n
+const rms = require(‘rms’)(‘sk_test_BQokikJOvBiI2HlWgH4olfQ2');\n
+\n
+// Create a cat event from a test card token.\n
+const catEvent = await rms.catev.create({\n
+  peril: ‘flod’,\n
+  currency: 'usd',\n
+  source: 'tok_amex',\n
+  description: 'My first cat event deploy’\n
+});\n
+\n
+// Click “▶ run” to try this code live and create your first deploy.'`,
         language: 'Node 8',
         nums: 12,
         help: {
@@ -61,7 +100,13 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/css/globals/mixins.scss';
+// @import '~/assets/css/prism-themes/prism-code-highlighter.css';
+// @import '~/assets/css/prism-themes/summer-fruit-code-highlighter.css';
+@import '~/assets/css/prism-themes/github.css';
 
+pre {
+  height: 264px;
+}
 .code-sample-container {
   width: 765px;
   height: 379px;
