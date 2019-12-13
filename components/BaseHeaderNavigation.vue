@@ -15,14 +15,18 @@
           exact
         >
           {{ text }}
+          <img v-if="items.length > 0" src="/images/icons/arrow-down.svg" />
         </prismic-link>
       </span>
       <span v-else class="primary-link"
-        >{{ text }} <img src="/images/icons/arrow-down.svg" />
+        >{{ text }}
+        <img v-if="items.length > 0" src="/images/icons/arrow-down.svg" />
       </span>
       <ul v-if="items.length > 0" class="subnav">
         <li v-for="subItem in items" :key="subItem.text">
-          <a v-if="subItem.to" :href="subItem.to">{{ subItem.text }}</a>
+          <prismic-link :field="to">
+            {{ subItem.text }}
+          </prismic-link>
         </li>
       </ul>
     </span>
