@@ -44,7 +44,8 @@ export default {
     '~/plugins/link-resolver.js',
     '~/plugins/html-serializer.js',
     '~/plugins/prismic-vue.js',
-    { src: '~plugins/prism', ssr: false }
+    { src: '~plugins/prism', ssr: false },
+    '~/plugins/prism-editor.js'
   ],
   /*
    ** Nuxt.js dev-modules

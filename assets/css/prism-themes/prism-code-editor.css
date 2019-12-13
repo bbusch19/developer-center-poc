@@ -1,36 +1,65 @@
-/**
- * GHColors theme by Avi Aryan (http://aviaryan.in)
- * Inspired by Github syntax coloring
- */
-
-/*code span:first-chiild {
-  margin-top: 15px;
-}
-code span:last-chiild {
-  margin-top: 15px;
-}*/
-
-.code-editor-wrapper {
+/*.code-editor-wrapper {
   width: 100%;
   height: 100%;
-  /*position: relative;*/
-  /*  margin-top: 15px;
-  margin-bottom: 20px;*/
-}
+  position: relative;
+    margin-top: 15px;
+  margin-bottom: 20px;
+}*/
 
-.code-editor-wrapper .nums-background {
+/*.code-editor-wrapper .nums-background {
   width: 41px;
   height: 100%;
   background-color: #e2f7eb;
+}*/
+
+.prism-editor__line-numbers,
+pre[class*='language-'],
+code[class*='language-'] {
+  font-family: 'IBM Plex Mono', monospace;
+}
+/*********************************************************
+**********************************************************
+  LINE NUMBERS
+**********************************************************  
+*********************************************************/
+
+.prism-editor__line-numbers {
+  width: 41px;
+  height: 100%;
+  background-color: #e2f7eb;
+  padding: 15px 0 20px 0;
+  text-align: center;
+  color: black;
+}
+.prism-editor__line-number {
+  text-align: center;
+  color: black;
 }
 
+.prism-editor__line-number.token.comment {
+  text-align: center;
+  color: #93c5a8;
+  font-size: 16px;
+  line-height: 22px;
+  font-style: normal;
+}
+
+/*********************************************************
+**********************************************************
+  CODE EDITOR
+**********************************************************  
+*********************************************************/
+
+pre[class*='language-'] {
+  padding: 15px 0 20px 17px;
+}
 code[class*='language-'],
 pre[class*='language-'] {
   /*  position: absolute;
   top: 8px;*/
   /*  left: 0;*/
 
-  color: #393a34;
+  /*color: #393a34;*/
   /*  font-family: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', Courier,
     monospace;*/
   /*  direction: ltr;
@@ -114,8 +143,8 @@ pre[class*='language-'] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #999988;
-  font-style: italic;
+  color: #aaaaaa;
+  font-style: normal;
 }
 
 .token.namespace {
@@ -124,11 +153,11 @@ pre[class*='language-'] {
 
 .token.string,
 .token.attr-value {
-  color: #e3116c;
+  color: #5eac7d;
 }
 .token.punctuation,
 .token.operator {
-  color: #393a34; /* no highlight */
+  color: #c42032; /* no highlight */
 }
 
 .token.entity,
@@ -148,13 +177,13 @@ pre[class*='language-'] {
 .token.keyword,
 .token.attr-name,
 .language-autohotkey .token.selector {
-  color: #00a4db;
+  color: #6ba5ff;
 }
 
 .token.function,
 .token.deleted,
 .language-autohotkey .token.tag {
-  color: #9a050f;
+  color: #468fff;
 }
 
 .token.tag,
@@ -163,11 +192,11 @@ pre[class*='language-'] {
   color: #00009f;
 }
 
-.token.important,
+/*.token.important,
 .token.function,
 .token.bold {
   font-weight: bold;
-}
+}*/
 
 .token.italic {
   font-style: italic;

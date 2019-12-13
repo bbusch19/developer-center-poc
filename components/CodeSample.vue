@@ -4,34 +4,14 @@
       <p>{{ codeSample.title }}</p>
     </div>
     <div class="cs-body">
-      <div class="row">
-        <!--         <div class="nums-column column">
-          <ul>
-            <li v-for="(num, index) in codeSample.nums">{{ index }}</li>
-          </ul>
-        </div>
-        <div class="content-column column">
-          <p>{{ codeSample.codeContent }}</p>
-        </div> -->
-
-        <!--         <prism-editor
-          :code="codeSample.codeContent"
+      <div class="code-editor-wrapper">
+        <prism-editor
+          :code="code"
           language="js"
-        ></prism-editor> -->
-        <!-- <prism language="javascript">{{ code }}</prism> -->
-        <!--         <prism language="js" class="line-numbers" data-linenumber>{{
-          codeSample.codeTest
-        }}</prism> -->
-
-        <!--         <prism-editor :code="code" language="js"></prism-editor> -->
-
-        <pre class="language-js">
-  <code>
-    export default {
-      name: 'hello'
-    }
-  </code>
-</pre>
+          :lineNumbers="true"
+          :readonly="true"
+          :autoStyleLineNumbers="false"
+        ></prism-editor>
       </div>
     </div>
     <div class="cs-header-footer cs-footer">
@@ -56,32 +36,23 @@
 </template>
 
 <script>
-// import PrismEditor from 'vue-prism-editor'
-// import Prism from 'vue-prism-component'
-
 export default {
-  // components: {
-  //   PrismEditor
-  //   // Prism
-  // },
   data() {
     return {
-      code: 'const a=b',
+      code: `// Require the RMS library with a test secret key.
+            const rms = require(‘rms’)(‘sk_test_BQokikJOvBiI2HlWgH4olfQ2');
+
+            // Create a cat event from a test card token.
+            const catEvent = await rms.catev.create({
+              peril: ‘flod’,
+              currency: 'usd',
+              source: 'tok_amex',
+              description: 'My first cat event deploy’
+            });
+
+            // Click “▶ run” to try this code live and create your first deploy`,
       codeSample: {
         title: 'CAT Event request API key',
-        codeContent: '//This is dummy data.',
-        codeTest: `// Require the RMS library with a test secret key.\n
-const rms = require(‘rms’)(‘sk_test_BQokikJOvBiI2HlWgH4olfQ2');\n
-\n
-// Create a cat event from a test card token.\n
-const catEvent = await rms.catev.create({\n
-  peril: ‘flod’,\n
-  currency: 'usd',\n
-  source: 'tok_amex',\n
-  description: 'My first cat event deploy’\n
-});\n
-\n
-// Click “▶ run” to try this code live and create your first deploy.'`,
         language: 'Node 8',
         nums: 12,
         help: {
@@ -104,8 +75,12 @@ const catEvent = await rms.catev.create({\n
 // @import '~/assets/css/prism-themes/summer-fruit-code-highlighter.css';
 @import '~/assets/css/prism-themes/github.css';
 
-pre {
-  height: 264px;
+.code-editor-wrapper,
+pre,
+code {
+  width: 765px;
+  height: 299px;
+  // overflow-y: scroll;
 }
 .code-sample-container {
   width: 765px;
@@ -181,16 +156,10 @@ pre {
   }
 }
 .cs-body {
-  @include flex-horizontal-column;
-  .column {
-    flex-basis: auto;
-    flex: none;
-    -webkit-box-flex: none;
-  }
-  .nums-column {
-    width: 41px;
-    background-color: #e2f7eb;
-  }
+  // .nums-column {
+  //   width: 41px;
+  //   background-color: #e2f7eb;
+  // }
   ul {
     padding: 0;
     margin: 15px 0 20px 0;
