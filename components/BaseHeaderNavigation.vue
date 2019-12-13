@@ -6,7 +6,14 @@
       class="link-container"
     >
       <span v-if="to">
-        <prismic-link :field="to" class="primary-link">
+        <prismic-link
+          :field="to"
+          :class="[
+            'primary-link',
+            to.uid.replace('home', '/') === $nuxt.$route.path && 'custom-active'
+          ]"
+          exact
+        >
           {{ text }}
         </prismic-link>
       </span>
@@ -51,42 +58,9 @@ export default {
           return navItem
         })
         .filter((item) => item.to)
-      console.log(newItems)
       return newItems
     }
   }
-  // data() {
-  //   return {
-  //     navigationItems: [
-  //       {
-  //         to: '/',
-  //         text: 'Home'
-  //       },
-  //       {
-  //         to: null,
-  //         text: 'Events',
-  //         items: [{ to: '#', text: 'See Events' }]
-  //       },
-  //       {
-  //         to: null,
-  //         text: 'Products',
-  //         items: [{ to: '#', text: 'See Products' }]
-  //       },
-  //       {
-  //         to: '/learn',
-  //         text: 'Learn'
-  //       },
-  //       {
-  //         to: '/developer-center',
-  //         text: 'Developers'
-  //       },
-  //       {
-  //         to: '/support',
-  //         text: 'Support'
-  //       }
-  //     ]
-  //   }
-  // }
 }
 </script>
 
@@ -96,6 +70,7 @@ export default {
 nav {
   display: flex;
   position: relative;
+  z-index: 1;
 }
 
 .primary-link {
@@ -126,7 +101,7 @@ span {
   }
 }
 
-.nuxt-link-active {
+.custom-active {
   color: $primary;
   border-bottom: 3px solid $primary;
 }
