@@ -4,7 +4,7 @@
       <img src="/images/logo-rms.svg" alt="RMS Logo" />
       <p>OWL <br /><span>Support Center</span></p>
     </div>
-    <BaseHeaderNavigation />
+    <BaseHeaderNavigation :navigationItems="navigationItems" />
     <div>
       <p>Icons go here</p>
     </div>
@@ -17,6 +17,12 @@ import BaseHeaderNavigation from '~/components/BaseHeaderNavigation'
 export default {
   components: {
     BaseHeaderNavigation
+  },
+  props: {
+    navigationItems: {
+      type: Array,
+      required: true
+    }
   }
 }
 </script>
