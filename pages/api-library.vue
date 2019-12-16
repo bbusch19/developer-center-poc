@@ -23,7 +23,7 @@ export default {
 
       // Query to get blog home content
       // TODO: Update folder structure and API call to generate dynamic routes
-      const document = await api.getByID('XfKDBhEAACIA-Mwi')
+      const document = await api.getByID('XfQZtREAACEA_-YC')
       const navDocument = await api.getByID('XfK-sxEAACMA-dR-')
       const pageContent = document.data
       const navigationItems = navDocument.data.body
