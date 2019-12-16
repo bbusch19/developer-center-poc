@@ -7,10 +7,10 @@
       <div class="code-editor-wrapper">
         <prism-editor
           :code="code"
-          language="js"
           :lineNumbers="true"
           :readonly="true"
           :autoStyleLineNumbers="false"
+          language="js"
         ></prism-editor>
       </div>
     </div>
@@ -40,17 +40,17 @@ export default {
   data() {
     return {
       code: `// Require the RMS library with a test secret key.
-            const rms = require(‘rms’)(‘sk_test_BQokikJOvBiI2HlWgH4olfQ2');
+const rms = require(‘rms’)(‘sk_test_BQokikJOvBiI2HlWgH4olfQ2');
 
-            // Create a cat event from a test card token.
-            const catEvent = await rms.catev.create({
-              peril: ‘flod’,
-              currency: 'usd',
-              source: 'tok_amex',
-              description: 'My first cat event deploy’
-            });
+// Create a cat event from a test card token.
+const catEvent = await rms.catev.create({
+  peril: ‘flod’,
+  currency: 'usd',
+  source: 'tok_amex',
+  description: 'My first cat event deploy’
+});
 
-            // Click “▶ run” to try this code live and create your first deploy`,
+// Click “▶ run” to try this code live and create your first deploy`,
       codeSample: {
         title: 'CAT Event request API key',
         language: 'Node 8',
@@ -71,16 +71,12 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/css/globals/mixins.scss';
-// @import '~/assets/css/prism-themes/prism-code-highlighter.css';
-// @import '~/assets/css/prism-themes/summer-fruit-code-highlighter.css';
-@import '~/assets/css/prism-themes/github.css';
 
 .code-editor-wrapper,
 pre,
 code {
   width: 765px;
   height: 299px;
-  // overflow-y: scroll;
 }
 .code-sample-container {
   width: 765px;
@@ -153,33 +149,6 @@ code {
       text-align: right;
       color: #ffffff;
     }
-  }
-}
-.cs-body {
-  // .nums-column {
-  //   width: 41px;
-  //   background-color: #e2f7eb;
-  // }
-  ul {
-    padding: 0;
-    margin: 15px 0 20px 0;
-    list-style: none;
-  }
-  li {
-    font-family: IBMPlexMono;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 22px;
-    text-align: center;
-    color: #93c5a8;
-  }
-  .content-column {
-    margin: 16px 48px 19px 17px;
-    flex: 1;
-  }
-  p {
-    color: #aaaaaa;
-    line-height: 22px;
   }
 }
 </style>
