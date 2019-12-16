@@ -4,15 +4,14 @@
       <p>{{ codeSample.title }}</p>
     </div>
     <div class="cs-body">
-      <div class="row">
-        <div class="nums-column column">
-          <ul>
-            <li v-for="(num, index) in codeSample.nums">{{ index }}</li>
-          </ul>
-        </div>
-        <div class="content-column column">
-          <p>{{ codeSample.codeContent }}</p>
-        </div>
+      <div class="code-editor-wrapper">
+        <prism-editor
+          :code="code"
+          :lineNumbers="true"
+          :readonly="true"
+          :autoStyleLineNumbers="false"
+          language="js"
+        ></prism-editor>
       </div>
     </div>
     <div class="cs-header-footer cs-footer">
@@ -40,9 +39,20 @@
 export default {
   data() {
     return {
+      code: `// Require the RMS library with a test secret key.
+const rms = require(‘rms’)(‘sk_test_BQokikJOvBiI2HlWgH4olfQ2');
+
+// Create a cat event from a test card token.
+const catEvent = await rms.catev.create({
+  peril: ‘flod’,
+  currency: 'usd',
+  source: 'tok_amex',
+  description: 'My first cat event deploy’
+});
+
+// Click “▶ run” to try this code live and create your first deploy`,
       codeSample: {
         title: 'CAT Event request API key',
-        codeContent: '//This is dummy data.',
         language: 'Node 8',
         nums: 12,
         help: {
@@ -62,6 +72,12 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/css/globals/mixins.scss';
 
+.code-editor-wrapper,
+pre,
+code {
+  width: 765px;
+  height: 299px;
+}
 .code-sample-container {
   width: 765px;
   height: 379px;
@@ -133,39 +149,6 @@ export default {
       text-align: right;
       color: #ffffff;
     }
-  }
-}
-.cs-body {
-  @include flex-horizontal-column;
-  .column {
-    flex-basis: auto;
-    flex: none;
-    -webkit-box-flex: none;
-  }
-  .nums-column {
-    width: 41px;
-    background-color: #e2f7eb;
-  }
-  ul {
-    padding: 0;
-    margin: 15px 0 20px 0;
-    list-style: none;
-  }
-  li {
-    font-family: IBMPlexMono;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 22px;
-    text-align: center;
-    color: #93c5a8;
-  }
-  .content-column {
-    margin: 16px 48px 19px 17px;
-    flex: 1;
-  }
-  p {
-    color: #aaaaaa;
-    line-height: 22px;
   }
 }
 </style>

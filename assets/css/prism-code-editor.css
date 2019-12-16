@@ -1,0 +1,104 @@
+.prism-editor__line-numbers,
+pre[class*='language-'],
+code[class*='language-'] {
+  font-family: 'IBM Plex Mono', monospace;
+}
+/*********************************************************
+**********************************************************
+  LINE NUMBERS
+**********************************************************  
+*********************************************************/
+
+.prism-editor__line-numbers {
+  width: 41px;
+  height: 100%;
+  background-color: #e2f7eb;
+  padding: 15px 0 20px 0;
+  text-align: center;
+  color: black;
+}
+.prism-editor__line-number {
+  text-align: center;
+  color: black;
+}
+
+.prism-editor__line-number.token.comment {
+  text-align: center;
+  color: #93c5a8;
+  font-size: 16px;
+  line-height: 22px;
+  font-style: normal;
+}
+
+/*********************************************************
+**********************************************************
+  CODE EDITOR
+**********************************************************  
+*********************************************************/
+
+pre[class*='language-'] {
+  padding: 15px 0 20px 17px;
+}
+code[class*='language-'],
+pre[class*='language-'] {
+  font-size: 16px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #aaaaaa;
+  font-style: normal;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.string,
+.token.attr-value {
+  color: #5eac7d;
+}
+.token.punctuation,
+.token.operator {
+  color: #c42032; /* no highlight */
+}
+
+.token.entity,
+.token.url,
+.token.symbol,
+.token.number,
+.token.boolean,
+.token.variable,
+.token.constant,
+.token.property,
+.token.regex,
+.token.inserted {
+  color: #36acaa;
+}
+
+.token.atrule,
+.token.keyword,
+.token.attr-name,
+.language-autohotkey .token.selector {
+  color: #6ba5ff;
+}
+
+.token.function,
+.token.deleted,
+.language-autohotkey .token.tag {
+  color: #468fff;
+}
+
+.token.tag,
+.token.selector,
+.language-autohotkey .token.keyword {
+  color: #00009f;
+}
+
+.token.italic {
+  font-style: italic;
+}
