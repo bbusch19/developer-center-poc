@@ -9,6 +9,7 @@
         :items="slice.items"
         v-bind="slice.primary"
         v-if="slice.slice_type === 'api_sample_section'"
+        component-to-render="BaseEndpoint"
       />
     </div>
   </div>

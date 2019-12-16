@@ -10,14 +10,33 @@
     <p>{{ $prismic.richTextAsPlain(subheading) }}</p>
     <div class="collapsible-block">
       <p class="title">{{ title }}</p>
-      <div v-for="(item, index) of items" :key="index" class="collapsible-item">
-        test
-      </div>
+      <CollapsibleContentItem
+        v-for="(item, index) of items"
+        :key="index"
+        :item="item"
+        class="collapsible-item"
+      >
+        <div v-for="(endpoint, subIndex) of item.endpoints" :key="subIndex">
+          <!-- eslint-disable-next-line vue/require-component-is -->
+          <component
+            v-if="endpoint.spans[0].data.label === 'post-type'"
+            :is="componentToRender"
+            :method="endpoint.text"
+            :uri="item.endpoints[subIndex + 1].text"
+            :description="item.endpoints[subIndex + 2].text"
+          />
+        </div>
+      </CollapsibleContentItem>
     </div>
   </section>
 </template>
 <script>
+import CollapsibleContentItem from '~/components/CollapsibleContentItem'
+
 export default {
+  components: {
+    CollapsibleContentItem
+  },
   props: {
     items: {
       type: Array,
@@ -43,6 +62,10 @@ export default {
     title: {
       type: String,
       default: 'API SAMPLES'
+    },
+    componentToRender: {
+      type: String,
+      default: null
     }
   }
 }
@@ -75,6 +98,8 @@ h2 {
 
 .collapsible-block {
   margin-top: 60px;
+  border: 1px solid rgba(28, 46, 54, 0.2);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .title {
