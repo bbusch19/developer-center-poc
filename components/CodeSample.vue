@@ -1,5 +1,5 @@
 <template>
-  <div class="code-sample-container line-numbers">
+  <div class="code-sample-container">
     <div class="cs-header-footer cs-header">
       <p>{{ codeSample.title }}</p>
     </div>
