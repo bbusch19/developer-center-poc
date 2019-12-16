@@ -1,6 +1,5 @@
 <template>
   <div>
-    <BaseHeader />
     <nuxt />
   </div>
 </template>
@@ -20,11 +19,5 @@ html {
 </style>
 
 <script>
-import BaseHeader from '~/components/BaseHeader'
-
-export default {
-  components: {
-    BaseHeader
-  }
-}
+export default {}
 </script>

@@ -1,19 +1,32 @@
 <template>
   <nav role="navigation">
     <span
-      v-for="{ text, to, items } of navigationItems"
+      v-for="{ text, to, items } of filteredNavigationItems"
       :key="text"
       class="link-container"
     >
       <span v-if="to">
-        <nuxt-link :to="to" class="primary-link" exact>{{ text }}</nuxt-link>
+        <prismic-link
+          :field="to"
+          :class="[
+            'primary-link',
+            to.uid.replace('home', '/') === $nuxt.$route.path && 'custom-active'
+          ]"
+          exact
+        >
+          {{ text }}
+          <img v-if="items.length > 0" src="/images/icons/arrow-down.svg" />
+        </prismic-link>
       </span>
       <span v-else class="primary-link"
-        >{{ text }} <img src="/images/icons/arrow-down.svg" />
+        >{{ text }}
+        <img v-if="items.length > 0" src="/images/icons/arrow-down.svg" />
       </span>
-      <ul v-if="items" class="subnav">
+      <ul v-if="items.length > 0" class="subnav">
         <li v-for="subItem in items" :key="subItem.text">
-          <a v-if="subItem.to" :href="subItem.to">{{ subItem.text }}</a>
+          <prismic-link :field="to">
+            {{ subItem.text }}
+          </prismic-link>
         </li>
       </ul>
     </span>
@@ -22,36 +35,34 @@
 
 <script>
 export default {
-  data() {
-    return {
-      navigationItems: [
-        {
-          to: '/',
-          text: 'Home'
-        },
-        {
-          to: null,
-          text: 'Events',
-          items: [{ to: '#', text: 'See Events' }]
-        },
-        {
-          to: null,
-          text: 'Products',
-          items: [{ to: '#', text: 'See Products' }]
-        },
-        {
-          to: '/learn',
-          text: 'Learn'
-        },
-        {
-          to: '/developer-center',
-          text: 'Developers'
-        },
-        {
-          to: '/support',
-          text: 'Support'
-        }
-      ]
+  props: {
+    navigationItems: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    filteredNavigationItems() {
+      const newItems = this.navigationItems
+        .map((item, index) => {
+          const navItem = { items: [] }
+          if (item.slice_type === 'first_level') {
+            const slicedItems = this.navigationItems.slice(index + 1, -1)
+            navItem.to = item.primary.link
+            navItem.text = item.primary.link_text
+            for (let i = 0; i < slicedItems.length; i++) {
+              const currentItem = slicedItems[i]
+              if (currentItem.slice_type === 'first_level') break
+              navItem.items.push({
+                to: currentItem.primary.link,
+                text: currentItem.primary.link_text
+              })
+            }
+          }
+          return navItem
+        })
+        .filter((item) => item.to)
+      return newItems
     }
   }
 }
@@ -62,6 +73,8 @@ export default {
 
 nav {
   display: flex;
+  position: relative;
+  z-index: 1;
 }
 
 .primary-link {
@@ -92,7 +105,7 @@ span {
   }
 }
 
-.nuxt-link-active {
+.custom-active {
   color: $primary;
   border-bottom: 3px solid $primary;
 }
@@ -100,6 +113,7 @@ span {
 .subnav {
   display: none;
   position: absolute;
+  top: 95%;
   padding: 0;
   list-style-type: none;
   background-color: white;
