@@ -1,8 +1,12 @@
 <template>
   <div>
     <BaseHeader :navigationItems="navigationItems" />
-    <APILibrarySearch />
-    <main><ApiLibrarySlicesBlock :slices="slices" /></main>
+    <div class="temp-container">
+      <APILibrarySearch />
+    </div>
+    <div class="temp-container">
+      <main><ApiLibrarySlicesBlock :slices="slices" /></main>
+    </div>
   </div>
 </template>
 
@@ -44,3 +48,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.temp-container {
+  width: 80%;
+  margin: 0 auto;
+}
+</style>
