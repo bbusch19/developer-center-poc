@@ -13,7 +13,7 @@ code[class*='language-'] {
   width: 41px;
   height: 100%;
   background-color: #e2f7eb;
-  padding: 15px 0 20px 0;
+  padding: 15px 0 0 0;
   text-align: center;
   color: black;
 }
@@ -37,7 +37,7 @@ code[class*='language-'] {
 *********************************************************/
 
 pre[class*='language-'] {
-  padding: 15px 0 20px 17px;
+  padding: 15px 0 0 17px;
 }
 code[class*='language-'],
 pre[class*='language-'] {

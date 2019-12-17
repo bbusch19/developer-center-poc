@@ -5,8 +5,10 @@
         v-if="slice.slice_type === 'authentication_section'"
         :slice="slice"
       />
-      <APILibraryCodeSamples :content="codeOne" />
-      <APILibraryCodeSamples :content="codeTwo" />
+      <APILibraryCodeSamples
+        v-if="slice.slice_type === 'code_samples'"
+        :slice="slice"
+      />
       <APIKeyHelpBox
         v-if="slice.slice_type === 'api_key_help_box'"
         :slice="slice"
@@ -36,26 +38,6 @@ export default {
     slices: {
       type: Array,
       required: true
-    }
-  },
-  data() {
-    return {
-      codeOne: {
-        code: `require ‘rms’
-Rms.api_key = ‘sk_test_BQokikJOvBiI2HlWgH4olfQ2'`,
-        title: 'Global API key'
-      },
-      codeTwo: {
-        code: `require ‘rms’
-charge = rms.Charge.retrieve(
-  "ch_1FHC5b2eZvKYlo2CPldyGjpc",
-  {
-    api_key: ”sk_test_4eC39HqLyjWDarjtT1zdp7dc”,
-  {
-)
-charge.save() # Uses the same API Key.`,
-        title: 'Per-request API key'
-      }
     }
   }
 }

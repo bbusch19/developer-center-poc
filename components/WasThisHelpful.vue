@@ -14,9 +14,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-  created() {
-    console.log(16, this.slice)
   }
 }
 </script>
