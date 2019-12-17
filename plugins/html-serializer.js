@@ -20,7 +20,7 @@ export default function(type, element, content, children) {
       result = `<nuxt-link to="${url}">${content}</nuxt-link>`
     } else {
       const target = element.data.target
-        ? `target="'${element.data.target}'" rel="noopener" style="text-decoration: none; color: #165fcf;"`
+        ? `target="'${element.data.target}'" rel="noopener"`
         : ''
       result = `<a href="${url}" ${target}>${content}</a>`
     }
@@ -78,10 +78,7 @@ export default function(type, element, content, children) {
       return `<strong>${children.join('')}</strong>`
 
     case Elements.em:
-      return `<div style="display:inline-block;border-radius:2px;border:solid 1px rgba(28, 46, 54, 0.2);background-color:#f7f9fc;padding: 2px 3px 0px 3px;
-"><em style="color:#e35d74;font-weight:normal;font-style:normal">${children.join(
-        ''
-      )}</em></div>`
+      return `<em>${children.join('')}</em>`
 
     case Elements.listItem:
       return `<base-list-item>${children.join('')}</base-list-item>`

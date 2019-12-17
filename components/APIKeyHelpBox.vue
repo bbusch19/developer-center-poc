@@ -7,7 +7,7 @@
       <div class="cs-body">
         <prismic-rich-text
           :field="slice.primary.description"
-          class="richText"
+          :class="[$style['rich-text']]"
         />
       </div>
     </div>
@@ -24,6 +24,20 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" module>
+.rich-text {
+  p {
+    font-size: 14px;
+    line-height: 22px;
+    color: #1c2e36;
+  }
+  a {
+    text-decoration: none;
+    color: #165fcf;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .help-box-container {
