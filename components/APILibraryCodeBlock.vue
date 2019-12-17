@@ -50,7 +50,6 @@ export default {
   created() {
     const languagesArray = []
     this.languages.forEach((item, index) => {
-      console.log(64, item.text)
       const isActive = index === 0
       const langObj = {
         title: item.text,
