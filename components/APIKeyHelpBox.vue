@@ -28,7 +28,6 @@ export default {
 <style lang="scss" scoped>
 .help-box-container {
   width: 763px;
-  height: 129px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   border: solid 1px rgba(28, 46, 54, 0.2);
   background-color: #ffffff;
