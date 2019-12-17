@@ -23,9 +23,6 @@ export default {
       type: Array,
       default: null
     }
-  },
-  created() {
-    console.log(28, this.heading)
   }
 }
 </script>
