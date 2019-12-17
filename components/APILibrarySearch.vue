@@ -1,7 +1,9 @@
 <template>
   <section>
     <div class="form-container">
-      <div class="icon-container"><span class="search-icon"></span></div>
+      <div class="icon-container">
+        <img src="/images/icons/search.svg" class="search-icon" />
+      </div>
       <form @submit.prevent="handleSubmit" class="search-input">
         <input v-model="inputValue" placeholder="Find anything…" />
       </form>
@@ -44,8 +46,6 @@ export default {
 .search-icon {
   width: 30px;
   height: 30px;
-  display: inline-block;
-  border: 1px solid #e4e6ea;
 }
 
 form {
@@ -54,7 +54,7 @@ form {
 
 input {
   height: 52px;
-  width: 100%;
+  width: 95%;
   -webkit-appearance: none;
   border: 0px;
   &:focus {
