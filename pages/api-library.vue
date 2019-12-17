@@ -1,6 +1,7 @@
 <template>
   <div>
     <BaseHeader :navigationItems="navigationItems" />
+    <APILibrarySearch />
     <main><ApiLibrarySlicesBlock :slices="slices" /></main>
   </div>
 </template>
@@ -8,13 +9,15 @@
 <script>
 import Prismic from 'prismic-javascript'
 import PrismicConfig from '~/prismic.config.js'
+import APILibrarySearch from '~/components/APILibrarySearch.vue'
 import ApiLibrarySlicesBlock from '~/components/ApiLibrarySlicesBlock.vue'
 import BaseHeader from '~/components/BaseHeader'
 
 export default {
   components: {
     ApiLibrarySlicesBlock,
-    BaseHeader
+    BaseHeader,
+    APILibrarySearch
   },
   async asyncData({ context, error, req }) {
     try {
