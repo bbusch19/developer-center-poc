@@ -20,6 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  margin: 60px 0;
+  padding: 60px 0;
+  border-bottom: 1px solid #e4e6ea;
 }
 </style>
