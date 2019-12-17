@@ -18,25 +18,8 @@ export default {
 }
 </script>
 
-<style lang="scss" module>
-// Adding a module here because of rich text inheritance
-
-.richText {
-  color: #5b616c;
-  color: red;
-  p {
-    color: #5b616c;
-    color: blue;
-  }
-  strong {
-    font-weight: normal;
-    color: red;
-  }
-
-  a {
-    text-decoration: none;
-    color: #165fcf;
-    color: red !important;
-  }
+<style lang="scss" scoped>
+section {
+  margin: 50px 0 60px 0;
 }
 </style>

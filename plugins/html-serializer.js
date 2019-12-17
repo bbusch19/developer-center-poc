@@ -75,13 +75,13 @@ export default function(type, element, content, children) {
       return `<pre>${children.join('')}</pre>`
 
     case Elements.strong:
-      return `<div style="display:inline-block;border-radius:2px;border:solid 1px rgba(28, 46, 54, 0.2);background-color:#f7f9fc;padding: 2px 3px 0px 3px;
-"><strong style="color:#e35d74;font-weight:normal;">${children.join(
-        ''
-      )}</strong></div>`
+      return `<strong>${children.join('')}</strong>`
 
     case Elements.em:
-      return `<em>${children.join('')}</em>`
+      return `<div style="display:inline-block;border-radius:2px;border:solid 1px rgba(28, 46, 54, 0.2);background-color:#f7f9fc;padding: 2px 3px 0px 3px;
+"><em style="color:#e35d74;font-weight:normal;font-style:normal">${children.join(
+        ''
+      )}</em></div>`
 
     case Elements.listItem:
       return `<base-list-item>${children.join('')}</base-list-item>`
