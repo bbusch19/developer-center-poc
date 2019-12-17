@@ -28,7 +28,6 @@ export default {
       const pageContent = document.data
       const navigationItems = navDocument.data.body
       const slices = pageContent.body
-      console.log(slices)
 
       return {
         pageContent,
