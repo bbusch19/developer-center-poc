@@ -36,11 +36,13 @@ export default {
 
 <style lang="scss" scoped>
 .collapsible-item {
-  margin: 15px;
+  padding: 15px;
+  border-bottom: 1px solid #e4e6ea;
 }
 
 h5 {
   margin: 0;
+  color: #1c2e36;
 
   img {
     float: right;
