@@ -1,10 +1,12 @@
 <template>
-  <div @click="handleClick" class="collapsible-item">
-    <h5>
+  <div class="collapsible-item">
+    <h5 @click="handleClick">
       {{ item.dropdown_title }}
       <img :class="{ open: isOpen }" src="/images/icons/arrow-down.svg" />
     </h5>
-    <p class="description">{{ item.dropdown_description }}</p>
+    <p v-if="item.dropdown_description" class="description">
+      {{ item.dropdown_description }}
+    </p>
     <div v-show="isOpen">
       <slot></slot>
     </div>

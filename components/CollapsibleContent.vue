@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section :class="classes">
     <h2>
       {{ $prismic.richTextAsPlain(heading) }}
       <span v-if="version" class="version">{{ version }}</span>
@@ -7,7 +7,8 @@
         second_version_field
       }}</span>
     </h2>
-    <p>{{ $prismic.richTextAsPlain(subheading) }}</p>
+    <a v-if="file_link" :href="file_link.url">{{ file_link_text }}</a>
+    <p class="subheading">{{ $prismic.richTextAsPlain(subheading) }}</p>
     <div class="collapsible-block">
       <p class="title">{{ title }}</p>
       <CollapsibleContentItem
@@ -16,15 +17,27 @@
         :item="item"
         class="collapsible-item"
       >
-        <div v-for="(endpoint, subIndex) of item.endpoints" :key="subIndex">
+        <div v-if="componentToRender === 'BaseEndpoint'">
+          <div v-for="(endpoint, subIndex) of item.endpoints" :key="subIndex">
+            <!-- eslint-disable-next-line vue/require-component-is -->
+            <component
+              v-if="endpoint.spans[0].data.label === 'post-type'"
+              :is="componentToRender"
+              :method="endpoint.text"
+              :uri="item.endpoints[subIndex + 1].text"
+              :description="item.endpoints[subIndex + 2].text"
+            />
+          </div>
+        </div>
+        <div v-else>
           <!-- eslint-disable-next-line vue/require-component-is -->
           <component
-            v-if="endpoint.spans[0].data.label === 'post-type'"
             :is="componentToRender"
-            :method="endpoint.text"
-            :uri="item.endpoints[subIndex + 1].text"
-            :description="item.endpoints[subIndex + 2].text"
-          />
+            :readonly="true"
+            :lineNumbers="false"
+            :code="item.code_sample[0].text"
+            language="js"
+          ></component>
         </div>
       </CollapsibleContentItem>
     </div>
@@ -59,6 +72,16 @@ export default {
       type: String,
       default: null
     },
+    // eslint-disable-next-line vue/prop-name-casing
+    file_link: {
+      type: Object,
+      default: null
+    },
+    // eslint-disable-next-line vue/prop-name-casing
+    file_link_text: {
+      type: String,
+      default: null
+    },
     title: {
       type: String,
       default: 'API SAMPLES'
@@ -66,6 +89,10 @@ export default {
     componentToRender: {
       type: String,
       default: null
+    },
+    classes: {
+      type: String,
+      default: ''
     }
   }
 }
@@ -74,10 +101,19 @@ export default {
 <style lang="scss" scoped>
 section {
   padding: 50px 80px 0;
+
+  &.no-pad {
+    padding: 0 80px;
+  }
 }
 
 h2 {
   margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.subheading {
+  margin-top: 30px;
 }
 
 .version,
