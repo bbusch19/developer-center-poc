@@ -28,7 +28,7 @@
         v-bind="slice.primary"
         v-if="slice.slice_type === 'collapsible_schemas'"
         component-to-render="prism-editor"
-        classes="no-pad"
+        classes="no-pad-top"
       />
     </div>
   </div>

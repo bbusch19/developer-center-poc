@@ -100,10 +100,11 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding: 50px 80px 0;
+  padding-top: 50px;
 
-  &.no-pad {
-    padding: 0 80px;
+  &.no-pad-top {
+    padding-top: 0;
+    padding-bottom: 160px;
   }
 }
 
