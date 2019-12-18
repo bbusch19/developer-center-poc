@@ -2,6 +2,7 @@
   <div>
     <BaseHeader :navigationItems="navigationItems" />
     <main><SlicesBlock :slices="slices" /></main>
+    {{ slices[0].primary.heading }}
   </div>
 </template>
 
