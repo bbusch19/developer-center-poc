@@ -19,10 +19,8 @@
       >
         <div v-if="componentToRender === 'BaseEndpoint'">
           <div v-for="(endpoint, subIndex) of item.endpoints" :key="subIndex">
-            <!-- eslint-disable-next-line vue/require-component-is -->
-            <component
+            <BaseEndpoint
               v-if="endpoint.spans[0].data.label === 'post-type'"
-              :is="componentToRender"
               :method="endpoint.text"
               :uri="item.endpoints[subIndex + 1].text"
               :description="item.endpoints[subIndex + 2].text"
@@ -30,14 +28,12 @@
           </div>
         </div>
         <div v-else>
-          <!-- eslint-disable-next-line vue/require-component-is -->
-          <component
-            :is="componentToRender"
+          <prism-editor
             :readonly="true"
             :lineNumbers="false"
             :code="item.code_sample[0].text"
             language="js"
-          ></component>
+          />
         </div>
       </CollapsibleContentItem>
     </div>

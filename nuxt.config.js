@@ -67,5 +67,8 @@ export default {
     extend(config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
     }
+  },
+  generate: {
+    fallback: true
   }
 }
