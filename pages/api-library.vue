@@ -1,20 +1,27 @@
 <template>
   <div>
     <BaseHeader :navigationItems="navigationItems" />
-    <main><ApiLibrarySlicesBlock :slices="slices" /></main>
+    <div class="temp-container">
+      <APILibrarySearch />
+    </div>
+    <div class="temp-container">
+      <main><ApiLibrarySlicesBlock :slices="slices" /></main>
+    </div>
   </div>
 </template>
 
 <script>
 import Prismic from 'prismic-javascript'
 import PrismicConfig from '~/prismic.config.js'
+import APILibrarySearch from '~/components/APILibrarySearch.vue'
 import ApiLibrarySlicesBlock from '~/components/ApiLibrarySlicesBlock.vue'
 import BaseHeader from '~/components/BaseHeader'
 
 export default {
   components: {
     ApiLibrarySlicesBlock,
-    BaseHeader
+    BaseHeader,
+    APILibrarySearch
   },
   async asyncData({ context, error, req }) {
     try {
@@ -41,3 +48,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.temp-container {
+  width: 80%;
+  margin: 0 auto;
+}
+</style>

@@ -2,7 +2,9 @@
   <div class="code-block-container">
     <div class="cs-header">
       <p>{{ content.title }}</p>
-      <div @click="copyCode(content.code)" class="copy-icon"></div>
+      <div @click="copyCode(content.code)" class="copy-icon">
+        <img src="/images/icons/copy.svg" />
+      </div>
     </div>
     <div class="cs-langs">
       <ol>
@@ -118,11 +120,10 @@ code {
   }
   .copy-icon {
     position: absolute;
-    top: 12px;
+    top: 0;
     right: 14px;
     width: 14px;
     height: 17px;
-    background-color: #165fcf;
     cursor: pointer;
   }
 }
