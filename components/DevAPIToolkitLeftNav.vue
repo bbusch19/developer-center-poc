@@ -5,17 +5,15 @@
         v-for="(item, index) in navData.left_nav_items"
         :class="{ active: index === 0 }"
       >
-        <a>{{ item.text }}</a>
-        <span class="caret"></span>
+        <a>{{ item.text }}<span class="caret"></span></a>
       </li>
     </ul>
     <p>
       <a
         :href="navData.full_api_reference_link.url"
         target="navData.full_api_reference_link.target"
-        >{{ navData.full_api_reference_link_text }}</a
-      >
-      <span></span>
+        >{{ navData.full_api_reference_link_text }}<span></span
+      ></a>
     </p>
   </div>
 </template>

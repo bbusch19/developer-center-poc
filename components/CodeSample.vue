@@ -76,11 +76,9 @@ const catEvent = await rms.catev.create({
 pre,
 code {
   width: 765px;
-  height: 299px;
 }
 .code-sample-container {
   width: 765px;
-  height: 379px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   border: solid 1px rgba(28, 46, 54, 0.2);
   background-color: #ffffff;
