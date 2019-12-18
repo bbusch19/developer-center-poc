@@ -7,10 +7,14 @@
     <div class="row-container">
       <div class="row">
         <div class="column">
-          <LeftNav :nav-data="slice.primary" />
+          <LeftNav
+            :nav-items="navItems"
+            :api-ref-link="apiRefLink"
+            @setActiveContent="setActiveContent"
+          />
         </div>
         <div class="column">
-          <CodeSample />
+          <CodeSample :code="codeBlock" />
         </div>
       </div>
     </div>
@@ -30,6 +34,84 @@ export default {
     slice: {
       type: Object,
       required: true
+    }
+  },
+  data() {
+    return {
+      navItems: this.slice.primary.left_nav_items,
+      apiRefLink: {
+        text: this.slice.primary.full_api_reference_link_text,
+        url: this.slice.primary.full_api_reference_link.url,
+        target: this.slice.primary.full_api_reference_link.target
+      },
+      codeBlock: '',
+      codeBlocksData: [
+        {
+          code: `// Require the RMS library with a test secret key.
+const rms = require(‘rms’)(‘sk_test_BQokikJOvBiI2HlWgH4olfQ2');
+
+// Create a cat event from a test card token.
+const catEvent = await rms.catev.create({
+  peril: ‘flod’,
+  currency: 'usd',
+  source: 'tok_amex',
+  description: 'My first cat event deploy’
+});
+
+// Click “▶ run” to try this code live and create your first deploy`
+        },
+        {
+          code: `// This is code for the Customers API Key`
+        },
+        {
+          code: `// This is code for the Subscriptions API Key`
+        },
+        {
+          code: `// This is code for the Reporting API Key`
+        }
+      ]
+    }
+  },
+  mounted() {
+    console.log(76, this.codeBlock)
+    this.setDefaultCodeBlock()
+    this.setNavData()
+    console.log(799, this.codeBlock)
+  },
+  methods: {
+    setActiveContent(index) {
+      this.setActiveNav(index)
+      this.setCodeBlockData(index)
+    },
+    setActiveNav(activeNavIndex) {
+      this.navItems.forEach((item, index) => {
+        item.isActive = false
+        item.isActive = activeNavIndex === index
+      })
+    },
+    setDefaultCodeBlock() {
+      this.codeBlock = this.codeBlocksData[0].code
+    },
+    setCodeBlockData(index) {
+      const navItemsData = this.navItems
+      const codeBlocks = this.codeBlocksData
+
+      navItemsData.forEach((item, index) => {
+        this.navItems[index].code = codeBlocks[index].code
+      })
+    },
+    setNavData() {
+      const propsNavItems = this.navItems
+      const navData = []
+      propsNavItems.forEach((item, index) => {
+        const isActive = index === 0
+        const navItem = {
+          text: item.text,
+          isActive
+        }
+        navData.push(navItem)
+      })
+      this.navItems = navData
     }
   }
 }

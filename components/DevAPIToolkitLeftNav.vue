@@ -2,17 +2,17 @@
   <div class="left-nav-container">
     <ul>
       <li
-        v-for="(item, index) in navData.left_nav_items"
-        :class="{ active: index === 0 }"
+        v-for="(item, index) in navItems"
+        @click="setActiveContent(item.isActive, index)"
+        :key="index"
+        :class="{ active: item.isActive }"
       >
         <a>{{ item.text }}<span class="caret"></span></a>
       </li>
     </ul>
     <p>
-      <a
-        :href="navData.full_api_reference_link.url"
-        target="navData.full_api_reference_link.target"
-        >{{ navData.full_api_reference_link_text }}<span></span
+      <a :href="apiRefLink.url" target="apiRefLink.target"
+        >{{ apiRefLink.text }}<span></span
       ></a>
     </p>
   </div>
@@ -21,9 +21,20 @@
 <script>
 export default {
   props: {
-    navData: {
+    navItems: {
+      type: Array,
+      required: true
+    },
+    apiRefLink: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    setActiveContent(isActive, index) {
+      if (!isActive) {
+        this.$emit('setActiveContent', index)
+      }
     }
   }
 }

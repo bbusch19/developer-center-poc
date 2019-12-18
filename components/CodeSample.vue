@@ -1,12 +1,12 @@
 <template>
   <div class="code-sample-container">
     <div class="cs-header-footer cs-header">
-      <p>{{ codeSample.title }}</p>
+      <p>{{ tomtom.title }}</p>
     </div>
     <div class="cs-body">
       <div class="code-editor-wrapper">
         <prism-editor
-          :code="code"
+          :code="codeBlock"
           :lineNumbers="true"
           :readonly="true"
           :autoStyleLineNumbers="false"
@@ -16,18 +16,18 @@
     </div>
     <div class="cs-header-footer cs-footer">
       <div class="language-container cta-container">
-        <p class="language">{{ codeSample.language }}</p>
+        <p class="language">{{ tomtom.language }}</p>
       </div>
       <div class="right-container cta-container">
         <div class="help-container">
-          <a>{{ codeSample.help.text }}</a>
+          <a>{{ tomtom.help.text }}</a>
         </div>
         <div class="run-container">
           <div>
             <div class="triangle-container">
               <span></span>
             </div>
-            <p class="run-text">{{ codeSample.run.text }}</p>
+            <p class="run-text">{{ tomtom.run.text }}</p>
           </div>
         </div>
       </div>
@@ -37,21 +37,16 @@
 
 <script>
 export default {
+  props: {
+    code: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
-      code: `// Require the RMS library with a test secret key.
-const rms = require(‘rms’)(‘sk_test_BQokikJOvBiI2HlWgH4olfQ2');
-
-// Create a cat event from a test card token.
-const catEvent = await rms.catev.create({
-  peril: ‘flod’,
-  currency: 'usd',
-  source: 'tok_amex',
-  description: 'My first cat event deploy’
-});
-
-// Click “▶ run” to try this code live and create your first deploy`,
-      codeSample: {
+      codeBlock: this.code,
+      tomtom: {
         title: 'CAT Event request API key',
         language: 'Node 8',
         nums: 12,
