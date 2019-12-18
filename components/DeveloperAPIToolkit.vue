@@ -14,7 +14,7 @@
           />
         </div>
         <div class="column">
-          <CodeSample :code="codeBlock" />
+          <CodeSample :code="codeBlock" :title="apiCallout" />
         </div>
       </div>
     </div>
@@ -44,6 +44,7 @@ export default {
         url: this.slice.primary.full_api_reference_link.url,
         target: this.slice.primary.full_api_reference_link.target
       },
+      apiCallout: '',
       codeBlock: '',
       codeBlocksData: [
         {
@@ -73,15 +74,16 @@ const catEvent = await rms.catev.create({
     }
   },
   mounted() {
-    console.log(76, this.codeBlock)
     this.setDefaultCodeBlock()
     this.setNavData()
-    console.log(799, this.codeBlock)
+    this.setDefaultAPICallout()
   },
   methods: {
     setActiveContent(index) {
       this.setActiveNav(index)
       this.setCodeBlockData(index)
+      this.setActiveCodeBlock(index)
+      this.setActiveAPICallout(index)
     },
     setActiveNav(activeNavIndex) {
       this.navItems.forEach((item, index) => {
@@ -89,9 +91,22 @@ const catEvent = await rms.catev.create({
         item.isActive = activeNavIndex === index
       })
     },
+    setActiveCodeBlock(index) {
+      this.codeBlock = this.navItems[index].code
+    },
     setDefaultCodeBlock() {
       this.codeBlock = this.codeBlocksData[0].code
     },
+    setActiveAPICallout(index) {
+      this.apiCallout = this.writeAPICallout(this.navItems[index].text)
+    },
+    setDefaultAPICallout() {
+      this.apiCallout = this.writeAPICallout(this.navItems[0].text)
+    },
+    writeAPICallout(string) {
+      return `${string.slice(0, -1)} request API key`
+    },
+
     setCodeBlockData(index) {
       const navItemsData = this.navItems
       const codeBlocks = this.codeBlocksData
@@ -113,7 +128,8 @@ const catEvent = await rms.catev.create({
       })
       this.navItems = navData
     }
-  }
+  },
+  computed: {}
 }
 </script>
 

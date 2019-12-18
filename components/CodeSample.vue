@@ -1,12 +1,12 @@
 <template>
   <div class="code-sample-container">
     <div class="cs-header-footer cs-header">
-      <p>{{ tomtom.title }}</p>
+      <p>{{ title }}</p>
     </div>
     <div class="cs-body">
       <div class="code-editor-wrapper">
         <prism-editor
-          :code="codeBlock"
+          :code="this.code"
           :lineNumbers="true"
           :readonly="true"
           :autoStyleLineNumbers="false"
@@ -41,6 +41,10 @@ export default {
     code: {
       type: String,
       required: true
+    },
+    title: {
+      type: String,
+      required: true
     }
   },
   data() {
@@ -49,7 +53,6 @@ export default {
       tomtom: {
         title: 'CAT Event request API key',
         language: 'Node 8',
-        nums: 12,
         help: {
           text: 'help',
           link: '#'
@@ -60,6 +63,9 @@ export default {
         }
       }
     }
+  },
+  mounted() {
+    console.log(65, this.code)
   }
 }
 </script>
