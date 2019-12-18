@@ -2,7 +2,7 @@
   <section>
     <prismic-rich-text
       :field="slice.primary.was_this_helpful"
-      class="richText"
+      :class="[$style['rich-text']]"
     />
   </section>
 </template>
@@ -17,6 +17,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" module>
+.rich-text {
+  a {
+    text-decoration: none;
+    color: #165fcf;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 section {
