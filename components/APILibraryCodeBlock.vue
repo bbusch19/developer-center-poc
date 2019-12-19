@@ -70,7 +70,6 @@ export default {
         item.isActive = listIndex === index
       })
     },
-    setCodeLang() {},
     copyCode: (text) => {
       const dummy = document.createElement('textarea')
       document.body.appendChild(dummy)
