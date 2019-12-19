@@ -128,8 +128,7 @@ const catEvent = await rms.catev.create({
       })
       this.navItems = navData
     }
-  },
-  computed: {}
+  }
 }
 </script>
 

@@ -6,7 +6,7 @@
     <div class="cs-body">
       <div class="code-editor-wrapper">
         <prism-editor
-          :code="this.code"
+          :code="code"
           :lineNumbers="true"
           :readonly="true"
           :autoStyleLineNumbers="false"
@@ -63,9 +63,6 @@ export default {
         }
       }
     }
-  },
-  mounted() {
-    console.log(65, this.code)
   }
 }
 </script>
