@@ -1,0 +1,8 @@
+{
+  "index_name": "example",
+  "start_urls": ["https://stoic-pike-056108.netlify.com/prismic-page"],
+  "selectors": {
+    "lvl0": "h1",
+    "text": "main p"
+  }
+}
