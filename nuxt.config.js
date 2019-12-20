@@ -52,7 +52,7 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/dotenv'
+    ['@nuxtjs/dotenv', { systemvars: true }]
   ],
   /*
    ** Nuxt.js modules
