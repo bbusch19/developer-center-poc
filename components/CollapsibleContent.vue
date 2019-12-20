@@ -1,5 +1,5 @@
 <template>
-  <section :class="classes">
+  <section id="anchor-test" :class="classes">
     <h2>
       {{ $prismic.richTextAsPlain(heading) }}
       <span v-if="version" class="version">{{ version }}</span>
