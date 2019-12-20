@@ -1,26 +1,27 @@
 <template>
   <form @submit.prevent="handleSubmit" class="search-input">
-    <input v-model="inputValue" placeholder="Search for code and content" />
+    <TheSiteSearch placeholder="Search for code and content…" />
   </form>
 </template>
 
 <script>
+import TheSiteSearch from '~/components/TheSiteSearch'
+
 export default {
-  data() {
-    return {
-      inputValue: null
-    }
+  components: {
+    TheSiteSearch
   },
   methods: {
-    handleSubmit() {
-      alert(this.inputValue)
-    }
+    handleSubmit() {}
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .search-input {
+  span {
+    width: 100%;
+  }
   input {
     padding: 16px;
     font-size: 15px;
@@ -28,11 +29,18 @@ export default {
     -webkit-appearance: none;
     border: 1px solid #c6cad1;
     width: 100%;
-    max-width: 635px;
+    max-width: 625px;
 
     &:focus {
       outline: none;
     }
   }
+}
+</style>
+
+<style lang="scss">
+.algolia-autocomplete {
+  width: 100%;
+  max-width: 625px;
 }
 </style>
