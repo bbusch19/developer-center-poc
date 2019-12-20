@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="handleSubmit" class="search-input">
-    <TheSiteSearch />
+    <TheSiteSearch placeholder="Search for code and content…" />
   </form>
 </template>
 

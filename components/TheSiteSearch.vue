@@ -2,7 +2,7 @@
   <input
     id="algolia"
     v-model="search"
-    placeholder="Enter a search"
+    :placeholder="placeholder"
     class="nui-search-input"
     type="text"
     name="search"
@@ -16,6 +16,12 @@ const onScriptLoaded = (cb) => callbacks.push(cb)
 const scriptLoaded = () => callbacks.forEach((cb) => cb())
 
 export default {
+  props: {
+    placeholder: {
+      type: String,
+      default: 'Search the site'
+    }
+  },
   data() {
     return {
       search: ''
@@ -58,7 +64,7 @@ export default {
     },
     reset() {
       // todo call API
-      this.q = ''
+      this.search = ''
     }
   }
 }
