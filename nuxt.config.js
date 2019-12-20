@@ -2,6 +2,10 @@ import PrismicConfig from './prismic.config'
 
 export default {
   mode: 'spa',
+  env: {
+    SEARCH_API_KEY: process.env.SEARCH_API_KEY,
+    APPLICATION_ID: process.env.APPLICATION_ID
+  },
   /*
    ** Headers of the page
    */
