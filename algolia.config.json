@@ -1,9 +1,13 @@
 {
   "index_name": "example",
-  "start_urls": ["https://dveloper-center-poc.netlify.com/prismic-page"],
+  "start_urls": [
+    "https://dveloper-center-poc.netlify.com/prismic-page",
+    "https://dveloper-center-poc.netlify.com/api-library"
+  ],
   "selectors": {
     "lvl0": "h1",
     "text": "main p"
   },
-  "js_render": true
+  "js_render": true,
+  "js_wait": 4
 }
