@@ -6,6 +6,7 @@
   ],
   "selectors": {
     "lvl0": "h1",
+    "lvl1": "h2",
     "text": "main p"
   },
   "js_render": true,

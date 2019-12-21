@@ -19,5 +19,17 @@ html {
 </style>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    // From testing, without a brief timeout, it won't work.
+    // setTimeout(() => this.scrollFix(this.$route.hash), 1)
+    if (this.$route.hash) {
+      const anchorEl = document.querySelector(`${this.$route.hash}`)
+
+      if (anchorEl) {
+        anchorEl.scrollIntoView()
+      }
+    }
+  }
+}
 </script>
