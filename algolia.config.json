@@ -7,7 +7,10 @@
   "selectors": {
     "lvl0": "h1",
     "lvl1": "h2",
-    "text": "main p"
+    "lvl2": "h3",
+    "lvl3": "h4",
+    "lvl4": "h5",
+    "text": "main p, main li"
   },
   "js_render": true,
   "js_wait": 4
