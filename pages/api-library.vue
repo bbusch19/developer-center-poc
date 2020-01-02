@@ -23,8 +23,12 @@ export default {
     BaseHeader,
     APILibrarySearch
   },
-  async asyncData({ context, error, req }) {
+  async asyncData({ context, error, req, $payloadURL, route, $axios }) {
     try {
+      if (process.static && process.client && $payloadURL) {
+        return await $axios.$get($payloadURL(route))
+      }
+
       // Query to get API object
       const api = await Prismic.getApi(PrismicConfig.apiEndpoint, { req })
 
