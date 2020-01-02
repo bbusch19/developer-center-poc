@@ -20,7 +20,18 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://rsms.me/inter/inter.css'
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap'
+      }
+    ],
     script: [
       {
         innerHTML:
@@ -39,7 +50,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['normalize.css', '~/assets/css/fonts.css', '~/assets/css/main.scss'],
+  css: ['normalize.css', '~/assets/css/fonts.scss', '~/assets/css/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
