@@ -72,7 +72,10 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['nuxt-payload-extractor', '@nuxtjs/axios'],
+  modules: [
+    ['nuxt-payload-extractor', { blacklist: ['/Preview'] }],
+    '@nuxtjs/axios'
+  ],
   /*
    ** Build configuration
    */
