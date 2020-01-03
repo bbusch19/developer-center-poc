@@ -5,19 +5,17 @@
 </template>
 
 <script>
-import { Client } from '~/prismicHelpers'
+import Prismic from 'prismic-javascript'
 import LinkResolver from '~/plugins/link-resolver.js'
+import PrismicConfig from '~/prismic.config.js'
 
 export default {
   name: 'Preview',
-  async asyncData({ req, query, redirect }) {
+  async asyncData({ query, redirect }) {
     const previewToken = query.token
+    const api = await Prismic.getApi(PrismicConfig.apiEndpoint)
     if (previewToken) {
-      const url = await Client(req).previewSession(
-        previewToken,
-        LinkResolver,
-        '/'
-      )
+      const url = await api.previewSession(previewToken, LinkResolver, '/')
       redirect(url)
     }
   }
