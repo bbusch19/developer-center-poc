@@ -14,8 +14,10 @@ export default {
   async asyncData({ query, redirect }) {
     const previewToken = query.token
     const api = await Prismic.getApi(PrismicConfig.apiEndpoint)
-    const url = await api.previewSession(previewToken, LinkResolver, '/')
-    redirect(url)
+    if (previewToken) {
+      const url = await api.previewSession(previewToken, LinkResolver, '/')
+      redirect(url)
+    }
   }
 }
 </script>
