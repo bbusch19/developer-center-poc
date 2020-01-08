@@ -1,3 +1,4 @@
+import Prismic from 'prismic-javascript'
 import PrismicConfig from './prismic.config'
 
 export default {
@@ -88,6 +89,15 @@ export default {
     }
   },
   generate: {
-    fallback: true
+    fallback: true,
+    async routes() {
+      const api = await Prismic.getApi(PrismicConfig.apiEndpoint)
+      const documents = await api.query('')
+      return documents.results
+        .map((doc) => {
+          if (doc.type === 'landing_page') return '/' + doc.uid
+        })
+        .filter(Boolean)
+    }
   }
 }
