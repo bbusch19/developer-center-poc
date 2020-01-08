@@ -20,13 +20,15 @@
     </div>
     <div class="cs-body">
       <div class="code-editor-wrapper">
-        <prism-editor
-          :code="content.code"
-          :lineNumbers="true"
-          :readonly="true"
-          :autoStyleLineNumbers="false"
-          language="js"
-        />
+        <client-only>
+          <prism-editor
+            :code="content.code"
+            :lineNumbers="true"
+            :readonly="true"
+            :autoStyleLineNumbers="false"
+            language="js"
+          />
+        </client-only>
       </div>
     </div>
   </div>
