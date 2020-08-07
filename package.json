@@ -20,7 +20,7 @@
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.0.1",
     "prismic-vue": "git+https://github.com/prismicio/prismic-vue.git#nuxt",
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.21.0",
     "vue-prism-editor": "^0.3.0"
   },
   "devDependencies": {
